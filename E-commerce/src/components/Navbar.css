@@ -1,153 +1,158 @@
 .navbar {
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    
-  }
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* .logo {
-    display: flex;
-    align-items: flex-end;
-  } */
-  
-  /* .logo img {
-    position: absolute;
-    top: 10px;
-    left:5px;
-    width: 40px;
-    height: 70px; 
-    overflow: hidden;
-    width: auto; 
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    padding: 7px 13px;
-    border-radius: 3px;
-  }
-  
-  .nav-links li a {
-    color:black;
-    text-decoration: none;
-    display: inline-block;
-    line-height: 100px;
-    font-size: 16px;
-    padding: 20px 18px;
-    border-radius: 3px;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
-  
-  .nav-links li a:hover {
-    color: #f4a261;
-  }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .search-bar input[type="text"] {
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .search-bar button {
-    padding: 8px 12px;
-    background-color: #f4a261;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .search-bar button:hover {
-    background-color: #e76f51;
-  }
-  
-  .nav-icons {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .icon {
-    color: #fff;
-    font-size: 20px;
-    text-decoration: none;
-    transition: color 0.3s;
-  } */
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  max-height: fit-content;
+  background-color: white;
+}
 
-  .logo img {
-    width: 170px;
-    height: auto;
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-links li a {
-    color: black;
-    font-size: 16px;
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-    padding: 10px;
-    transition: color 0.3s;
+  flex-wrap: wrap; /* Allow wrapping for small screens */
+  background-color: white;
+}
+
+.logo{
+  background-color: white;
+}
+
+.logo img {
+  width: 170px;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  font-weight: bold;
+  background-color: white;
+}
+
+.nav-links li a {
+  color: black;
+  font-size: 16px;
+  padding: 10px;
+  transition: color 0.3s;
+  background-color: white;
+}
+
+.nav-links li a:hover {
+  color: #f4a261;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background-color: white;
+}
+
+.search-bar input[type="text"] {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  width: 100%;
+  outline: none;
+  background-color: white;
+}
+
+/* For Nav Icons */
+.nav-icons {
+  display: flex;
+  gap: 15px;
+  background-color: white;
+}
+
+.icon {
+  background-color: white;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: #f4a261;
+}
+
+/* --- Responsive --- */
+
+/* Mobile View (for sm and below) */
+.sm\\:hidden {
+  display: block !important; /* Show hamburger menu */
+}
+
+
+.hamburger-menu {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: black;
+  background-color: white;
+}
+
+.mobile-menu {
+  display: block;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-menu li {
+  padding: 10px 0;
+}
+
+.mobile-menu li a {
+  color: black;
+  font-size: 16px;
+  padding: 10px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.mobile-menu li a:hover {
+  color: #f4a261;
+}
+
+/* Ensure Nav Items are hidden when on mobile */
+@media screen and (max-width: 900px) {
+  .one {
+    display: none; /* Hide nav links on mobile */
   }
-  
-  .nav-links li a:hover {
-    color: #f4a261;
+
+  .navbar-container {
+    justify-content: space-between;
   }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+
+  /* Show hamburger menu and mobile menu when screen size is less than 640px */
+  .hamburger-menu {
+    display: block; /* Show the hamburger button on small screens */
   }
-  
-  .search-bar input[type="text"] {
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+  .mobile-menu {
+    display: none; /* Hide mobile menu by default */
   }
-  
-  .search-bar button {
-    padding: 8px 12px;
-    background-color: #f4a261;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 4px;
+
+  /* Show mobile menu when hamburger menu is clicked */
+  .mobile-menu.open {
+    display: block;
   }
-  
-  .search-bar button:hover {
-    background-color: #e76f51;
+
+}
+
+@media screen and (max-width: 640px) {
+  .search-bar{
+    display: none;
   }
-  
-  .nav-icons {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .icon {
-    color: black;
-    font-size: 20px;
-    transition: color 0.3s;
-  }
-  
-  
-  .icon:hover {
-    color: #f4a261;
-  } 
+}
+

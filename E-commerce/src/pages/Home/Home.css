@@ -1,0 +1,53 @@
+/* Carousel Styles */
+.carousel-container {
+  width: 100%;
+  max-width: 1200px; /* Adjust based on your design */
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 20px; /* Added border radius */
+  overflow: hidden; /* Ensure the border radius is applied properly */
+  margin-bottom: 50px;
+}
+
+.carousel-slide {
+  border-radius: 20px; /* Added border radius to individual slides */
+}
+
+/* Image Styling */
+.carousel-slide img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 20px; /* Apply border radius to images */
+}
+
+/* Slick Dots Customization */
+.slick-dots {
+  bottom: 15px;
+}
+
+.slick-dots li button:before {
+  color: white; /* Change dot color */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #f4a261; /* Active dot color */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .carousel-slide img {
+      height: 300px; /* Adjust height for smaller screens */
+      border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .carousel-container {
+      padding: 5px;
+  }
+  .carousel-slide img {
+      height: 200px; /* Adjust height for mobile view */
+      border-radius: 10px;
+  }
+}

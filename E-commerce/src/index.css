@@ -5,9 +5,14 @@
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
+  background-color: rgb(49, 48, 48);
 }
 
 body {
-  
   font-family: montserrat;
+  padding: 10px 10px;
+}
+
+body::-webkit-scrollbar{
+  display: none;
 }
