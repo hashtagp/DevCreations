@@ -6,7 +6,7 @@ import cap from "../../assets/cap.png"
 import cup_bottle from "../../assets/cup_bottle.png"
 import t_shirt from "../../assets/t_shirt.png"
 import merch from"../../assets/merch.png"
-
+ 
 const Carousel = () => {
   // List of random image URLs (replace with actual URLs or image paths)
   const images = [
