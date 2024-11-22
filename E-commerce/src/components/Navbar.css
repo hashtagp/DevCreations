@@ -31,8 +31,9 @@
 }
 
 .nav-links li a {
-  color: black;
-  font-size: 16px;
+  color: #2C2A2A;
+  font-family: 'cabin', sans-serif;
+  font-size: 24px;
   padding: 10px;
   transition: color 0.3s;
   background-color: white;
@@ -114,7 +115,8 @@
 
 .mobile-menu li a {
   color: black;
-  font-size: 16px;
+  font-family: 'cabin', sans-serif;
+  font-size: 24px;
   padding: 10px;
   text-decoration: none;
   transition: color 0.3s;
@@ -125,7 +127,7 @@
 }
 
 /* Ensure Nav Items are hidden when on mobile */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1110px) {
   .one {
     display: none; /* Hide nav links on mobile */
   }

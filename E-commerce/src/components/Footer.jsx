@@ -70,6 +70,7 @@ const Footer = () => {
         </div>
         </div>
 
+      <hr/>
 
       <div className="footer-bottom">
         <p>© 2024 DevCreations and Solutions</p>

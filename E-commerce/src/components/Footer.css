@@ -10,6 +10,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 20px 30px;
+    justify-content: space-around;
     padding-top: 0px;
     background-color: #636466;
     gap: 30px;
@@ -83,7 +84,7 @@
 
 .query h3{
   color: #fff;
-  font-size: 24px;
+  font-size: 20px;
   font-family: 'Cabin', sans-serif;
 }
 
@@ -97,13 +98,15 @@
 
 /* Make input and button appear on the same line */
 .footer-search-bar input[type="email"] {
-    padding: 10px;
+    padding: 5px;
     padding-left: 20px;
     font-size: 22px;
     border: 1px solid #fff;
     font-family: 'Cabin', sans-serif;
     font-weight: 200;
     border-radius: 25px;
+    color: #fff;
+    opacity: 0.6;
     outline: none;
     background-color: #636466;
     width: 350px;
@@ -119,10 +122,10 @@
 
 /* Button Styling */
 .submit-container button {
-  padding: 8px 16px;
+  padding: 5px 10px;
   border: none;
   border-radius: 25px;
-  font-size: 24px;
+  font-size: 22px;
   font-family: 'Cabin', sans-serif;
   background-color: #fff;
   color: black;
@@ -136,6 +139,7 @@
   font-family: 'Cabin', sans-serif;
   font-weight: 200;
   font-size: 20px;
+  opacity: 0.6;
   color: #ffffff;
 }
 
@@ -156,6 +160,7 @@
     text-decoration: none;
     color: #fff;
     font-size: 15px;
+    font-family: 'poppins', sans-serif;
     transition: color 0.3s;
   }
   
@@ -185,8 +190,8 @@
   
   .footer-bottom {
     padding: 20px;
-    background-color: #fff;
-    margin-top: 20px;
+    background-color: #636466;
+    text-align: center;
   }
 
   .info{
@@ -197,15 +202,29 @@
     padding-top: 100px;
   }
   
+  .footer hr{
+    width: 95%;
+    margin: 0 auto;
+    border: 1px solid #fff;
+    opacity: 0.2;
+  }
+  
   .footer-bottom p {
     font-family: 'Cabin', sans-serif;
     font-size: 20px;
     color: #f68b20;
-    background-color: #fff;
+    background-color: #636466;
     text-shadow: 0px 4px 4px #000000;
   }
   
   /* --- Responsive --- */
+  @media screen and (max-width: 1090px) {
+    .footer-container{
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: none;
+    }
+  }
   @media screen and (max-width: 768px) {
     .footer-container {
       flex-direction: column;

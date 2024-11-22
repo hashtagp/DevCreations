@@ -6,6 +6,7 @@ import cap from "../../assets/cap.png"
 import cup_bottle from "../../assets/cup_bottle.png"
 import t_shirt from "../../assets/t_shirt.png"
 import merch from"../../assets/merch.png"
+import Explore from '../../components/Explore';
  
 const Carousel = () => {
   // List of random image URLs (replace with actual URLs or image paths)
@@ -30,6 +31,7 @@ const Carousel = () => {
   };
 
   return (
+    <>
     <div className="carousel-container">
       <Slider {...settings}>
         {images.map((image, index) => (
@@ -39,6 +41,8 @@ const Carousel = () => {
         ))}
       </Slider>
     </div>
+    <Explore/>
+    </>
   );
 };
 

@@ -1,60 +1,71 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import './Signup.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGooglePlusG, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
-const Signup = () => {
+function Signup() {
+  const [isActive, setIsActive] = useState(false);
+
+
+  const handleSignInClick = () => {
+    setIsActive(false);
+  };
+
+  const handleSignUpClick = () => {
+    setIsActive(true);
+  };
+
   return (
-    <div>
-    <div className="flex justify-center items-center px-4 py-10 bg-white">
-      <div className="w-full sm:w-96 p-6 shadow-lg bg-white rounded-md">
-        <h1 className="text-3xl block text-center font-semibold bg-white">
-          <i className="fa-solid fa-user bg-white"></i> Login
-        </h1>
-        <hr className="mt-3" />
-        
-        {/* Username Field */}
-        <div className="mt-3 bg-white">
-          <label htmlFor="username" className="block text-base mb-2 bg-white">Username</label>
-          <input
-            type="text"
-            id="username"
-            className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600 bg-white"
-            placeholder="Enter Username"
-          />
-        </div>
-  
-        {/* Password Field */}
-        <div className="mt-3 bg-white">
-          <label htmlFor="password" className="block text-base mb-2 bg-white">Password</label>
-          <input
-            type="password"
-            id="password"
-            className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600 bg-white"
-            placeholder="Enter Password"
-          />
-        </div>
-  
-        {/* Remember Me and Forgot Password */}
-        <div className="mt-3 flex justify-between items-center bg-white">
-          <div className="flex items-center bg-white">
-            <input type="checkbox" id="remember-me" className="mr-2 bg-white" />
-            <label htmlFor="remember-me" className='bg-white'>Remember Me</label>
+    <div className={`container ${isActive ? 'active' : ''}`} id="container">
+      <div className="form-container sign-up">
+        <form>
+          <h1>Create Account</h1>
+          <div className="social-icons">
+            <a href="#" className="icon"><FontAwesomeIcon icon={faGooglePlusG} /></a>
+            <a href="#" className="icon"><FontAwesomeIcon icon={faFacebookF} /></a>
+            <a href="#" className="icon"><FontAwesomeIcon icon={faGithub} /></a>
+            <a href="#" className="icon"><FontAwesomeIcon icon={faLinkedinIn} /></a>
           </div>
-          <div className='bg-white'>
-            <a href="#" className="text-indigo-500 font-semibold underline bg-white">Forgot Password?</a>
+          <span>or use your email for registration</span>
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <br />
+          <button type="button">Sign Up</button>
+        </form>
+      </div>
+      <div className="form-container sign-in">
+        <form>
+          <h1>Sign In</h1>
+          <div className="social-icons">
+            <a href="#" className="icon"><FontAwesomeIcon icon={faGooglePlusG} /></a>
+            <a href="#" className="icon"><FontAwesomeIcon icon={faFacebookF} /></a>
+            <a href="#" className="icon"><FontAwesomeIcon icon={faGithub} /></a>
+            <a href="#" className="icon"><FontAwesomeIcon icon={faLinkedinIn} /></a>
           </div>
-        </div>
-  
-        {/* Login Button */}
-        <div className="mt-5">
-          <button className="border-2 border-indigo-500 bg-indigo-500 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-500 font-semibold">
-            Login
-          </button>
+          <span>or use your email for login</span>
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <a href="#">Forget Your Password?</a>
+          <button type="button">Sign In</button>
+        </form>
+      </div>
+      <div className="toggle-container">
+        <div className="toggle">
+          <div className="toggle-panel toggle-left">
+            <h1>Welcome Back!</h1>
+            <p>Enter your personal details to use all of site features</p>
+            <button  id="login" onClick={handleSignInClick}>Sign In</button>
+          </div>
+          <div className="toggle-panel toggle-right">
+            <h1>Hello, Friend!</h1>
+            <p>Register with your personal details to use all of site features</p>
+            <button  id="register" onClick={handleSignUpClick}>Sign Up</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  
-
-  )
+  );
 }
 
-export default Signup
+export default Signup;

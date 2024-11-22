@@ -1,7 +1,6 @@
-/* Carousel Styles */
 .carousel-container {
   padding: 0;
-  width: 100%; /* Adjust based on your design */
+  width: 100%; /* Ensures full width */
   margin: 0 auto;
   background-color: white;
   border-radius: 20px; /* Added border radius */
@@ -12,17 +11,25 @@
 .carousel-slide {
   margin: 0;
   padding: 0;
-  border-radius: 20px; /* Added border radius to individual slides */
+  width: 100%; /* Full width of the container */
+  height: 500px; /* Adjust the height based on design */
+  border-radius: 10px; /* Added border radius to individual slides */
+  overflow: hidden; /* Ensure images don't overflow */
+  display: flex; /* Center-align content */
+  align-items: center;
+  justify-content: center;
 }
 
 /* Image Styling */
 .carousel-slide img {
-  width: 100%;
-  height: auto;
-  max-height: 500px;
-  object-fit:fill;
-  border-radius: 20px; /* Apply border radius to images */
+  width: 100%; /* Ensures the image covers the container width */
+  height: 100%; /* Ensures the image covers the container height */
+  /* object-fit: cover; Ensures the image scales and crops to fill the container */
+  object-position: center; /* Centers the image within the container */
+  /* border-radius: 5px; Keeps the border radius */
 }
+
+
 
 /* Slick Dots Customization */
 .slick-dots {
@@ -39,18 +46,18 @@
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-  .carousel-slide img {
-      height: 300px; /* Adjust height for smaller screens */
-      border-radius: 10px;
+  .carousel-slide {
+    height: 300px; /* Adjust height for smaller screens */
   }
 }
 
 @media screen and (max-width: 480px) {
   .carousel-container {
-      padding: 5px;
+    padding: 5px;
   }
-  .carousel-slide img {
-      height: 200px; /* Adjust height for mobile view */
-      border-radius: 10px;
+  .carousel-slide {
+    height: 200px; /* Adjust height for mobile view */
   }
 }
+
+

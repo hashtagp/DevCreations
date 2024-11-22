@@ -1,9 +1,11 @@
 const container = document.getElementById('container');
-const registerBtn = document.getElementById('register');
-const loginBtn = document.getElementById('login');
-registerBtn.addEventListener('click',() => {
-    container.classList.add("active");
+const signInButton = document.getElementById('login');
+const signUpButton = document.getElementById('register');
+
+signInButton.addEventListener('click', () => {
+    container.classList.remove('active');
 });
-loginBtnBtn.addEventListener('click',() => {
-    container.classList.remove("active");
+
+signUpButton.addEventListener('click', () => {
+    container.classList.add('active');
 });
