@@ -203,3 +203,10 @@
 .container.active .toggle-right {
     transform: translateX(200%);
 }
+
+@media(max-width: 600px){
+    .container{
+        width: 100%;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,14 @@
+.items, .items h3, .items p, .items div{
+    background-color: #fff;
+}
+
+.items div span{
+    background-color: #fff;
+}
+
+.items {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}

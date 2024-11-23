@@ -24,13 +24,14 @@
 }
 
 .nav-links {
+  cursor: pointer;
   display: flex;
   gap: 20px;
   font-weight: bold;
   background-color: white;
 }
 
-.nav-links li a {
+.nav-links li {
   color: #2C2A2A;
   font-family: 'cabin', sans-serif;
   font-size: 24px;
@@ -39,7 +40,7 @@
   background-color: white;
 }
 
-.nav-links li a:hover {
+.nav-links li:hover {
   color: #f4a261;
 }
 

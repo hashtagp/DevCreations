@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import devLogo2 from "../assets/logo.png";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const toggleMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
 
@@ -15,10 +18,10 @@ const Navbar = () => {
           {/* Desktop Nav Links */}
           <div className="one py-25 font-medium hidden sm:block">
             <ul className="nav-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">Categories</a></li>
-              <li><a href="#">Contact</a></li>
+              <li onClick={()=>navigate("/")}>Home</li>
+              <li onClick={()=>navigate("/products")}>Shop</li>
+              <li onClick={()=>navigate("/products")}>Categories</li>
+              <li>Contact</li>
             </ul>
           </div>
 
@@ -55,7 +58,7 @@ const Navbar = () => {
           {/* Nav Icons */}
           <div className="nav-icons">
             <a href="#" className="icon cart">🛒</a>
-            <a href="#" className="icon profile">👤</a>
+            <a href="#" onClick={()=>navigate("/signup")} className="icon profile">👤</a>
           </div>
         </div>
       </nav>
