@@ -21,7 +21,7 @@ const Navbar = () => {
               <li onClick={()=>navigate("/")}>Home</li>
               <li onClick={()=>navigate("/products")}>Shop</li>
               <li onClick={()=>navigate("/products")}>Categories</li>
-              <li>Contact</li>
+              <li onClick={()=>navigate("/contact")}>Contact</li>
             </ul>
           </div>
 
@@ -32,10 +32,10 @@ const Navbar = () => {
             </button>
             <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
               <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#" onClick={()=>navigate("/")}>Home</a></li>
+                <li><a href="#" onClick={()=>navigate("/products")}>Shop</a></li>
+                <li><a href="#" onClick={()=>navigate("/products")}>Categories</a></li>
+                <li><a href="#" onClick={()=>navigate("/contact")}>Contact</a></li>
               </ul>
             </div>
           </div>

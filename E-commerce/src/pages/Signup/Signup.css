@@ -204,9 +204,19 @@
     transform: translateX(200%);
 }
 
-@media(max-width: 600px){
-    .container{
+@media (max-width: 600px) {
+    .container {
         width: 100%;
         flex-direction: column;
+    }
+
+    .sign-in, .sign-up {
+        width: 100%;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .toggle-container, .toggle-panel {
+        display: none;
     }
 }

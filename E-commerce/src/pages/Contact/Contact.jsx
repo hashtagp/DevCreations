@@ -1,0 +1,54 @@
+import React from 'react'
+import './Contact.css'
+
+const Contact = () => {
+  return (
+    <section id="Contact-details" className="section bg-white -p1">
+                    <div className="contact bg-white">
+                        <h2>Contact Us</h2>
+                        <p>If you have any questions, concerns, or feedback,
+                            please
+                            don't hesitate to reach out to us. Our customer
+                            service
+                            team is here to assist you!</p>
+
+                        <section className="contact-info bg-white">
+                            <h3>Contact Information</h3>
+                            <li>
+                                <i className="fa-solid fa-envelope bg-white"></i>
+                                <p><a
+                                        href="devcreationsblr@gmail.com">devcreationsblr@gmail.com</a><br/>Response
+                                    Time: Within 24 hours</p>
+                            </li>
+                            <li>
+                                <i className="fa-solid fa-map bg-white"></i>
+                                <p>DEV Creation and solutions<br/>1st face, 88, KR Defense Colony, Cheemasandra <br/>Bengaluru, Karnataka 
+                                    - 560049<br/>India</p>
+                            </li>
+
+                        </section>
+
+                        <div className="social-media bg-white">
+                            <p>Follow Us on Social Media</p>
+                            <p>Stay connected with us for updates, promotions, and more!</p>
+                            <ul>
+                                <li><a href="#"><i className="fab fa-facebook-f bg-white"></i></a></li>
+                                <li><a href="https://www.instagram.com/dev_creationsblr/profilecard/?igsh=MXJqM3ppYWU3ejkwaA=="><i className="fab fa-instagram bg-white"></i></a></li>
+                                <li><a href="#"><i className="fab fa-twitter bg-white"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/dev-creations-and-solutions/"><i className="fab fa-linkedin-in bg-white"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="map bg-white">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62104.86627642231!2d77.7427292!3d13.0476392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0f6a591b8b0d%3A0xa50642f22dcdf97f!2sDev%20creations%20%26%20solutions!5e0!3m2!1sen!2sin!4v1732180678544!5m2!1sen!2sin"
+                        width="100%" height="450" style={{border:0}}
+                        allowFullScreen loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+            </section>
+  )
+}
+
+export default Contact
