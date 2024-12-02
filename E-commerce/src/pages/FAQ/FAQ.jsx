@@ -25,7 +25,7 @@ const FAQ = () => {
                 {
                     question: "Can I track my order?",
                     answer: "Yes, you can track your order using the tracking number provided in your shipping confirmation email."
-                },
+                }
             ]
         },
         {
@@ -33,11 +33,11 @@ const FAQ = () => {
             questions: [
                 {
                     question: "How do I reset my password?",
-                    answer: "It's usually located near the login button or in the form itself. You'll be asked to enter the email address associated with your account. Once your identity is verified, you'll be prompted to create a new password."
+                    answer: "You can reset your password by clicking 'Forgot Password' near the login button. Enter your email and follow the instructions to reset your password."
                 },
                 {
                     question: "Why can't I log in?",
-                    answer: "Check for typos in the email address or password, ensure correct capitalization, or try resetting the password."
+                    answer: "Check for typos in your email or password, ensure correct capitalization, or try resetting your password."
                 },
                 {
                     question: "What are the benefits of creating an account?",
@@ -49,16 +49,19 @@ const FAQ = () => {
                 },
                 {
                     question: "How can I contact customer support?",
-                    answer: "You can contact our customer support via email at devcreationsblr@gmail.com"
-                },
+                    answer: "You can contact our customer support via email at devcreationsblr@gmail.com."
+                }
             ]
         }
     ];
 
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [activeQuestion, setActiveQuestion] = useState(null);
 
-    const toggleFAQ = (index) => {
-        setActiveIndex(activeIndex === index ? null : index);
+    const toggleFAQ = (sectionIndex, questionIndex) => {
+        const isActive =
+            activeQuestion?.section === sectionIndex &&
+            activeQuestion?.question === questionIndex;
+        setActiveQuestion(isActive ? null : { section: sectionIndex, question: questionIndex });
     };
 
     return (
@@ -66,30 +69,42 @@ const FAQ = () => {
             <header>
                 <h1>Frequently Asked Questions</h1>
             </header>
+            <div className="faq-grid">
             {faqs.map((section, secIndex) => (
                 <div key={secIndex} className="faq-container">
                     <h2>{section.category}</h2>
-                    {section.questions.map((faq, index) => {
-                        const overallIndex = `${secIndex}-${index}`;
-                        return (
-                            <div key={overallIndex}>
+                    {section.questions.map((faq, qIndex) => (
+                        <div key={`${secIndex}-${qIndex}`} className="faq-item">
+                            <div className="faq-header">
                                 <button
-                                    className={`collapsible ${activeIndex === overallIndex ? "active" : ""}`}
-                                    onClick={() => toggleFAQ(overallIndex)}
+                                    className={`collapsible ${
+                                        activeQuestion?.section === secIndex &&
+                                        activeQuestion?.question === qIndex
+                                            ? "active"
+                                            : ""
+                                    }`}
+                                    onClick={() => toggleFAQ(secIndex, qIndex)}
                                 >
-                                    {faq.question}
+                                    <span className="faq-question">{faq.question}</span>
+                                    <span className="faq-toggle">
+                                        {activeQuestion?.section === secIndex &&
+                                        activeQuestion?.question === qIndex
+                                            ? "-"
+                                            : "+"}
+                                    </span>
                                 </button>
-                                <div
-                                    className="faq-content"
-                                    style={{ display: activeIndex === overallIndex ? "block" : "none" }}
-                                >
-                                    <p>{faq.answer}</p>
-                                </div>
                             </div>
-                        );
-                    })}
+                            {activeQuestion?.section === secIndex &&
+                                activeQuestion?.question === qIndex && (
+                                    <div className="faq-content">
+                                        <p>{faq.answer}</p>
+                                    </div>
+                                )}
+                        </div>
+                    ))}
                 </div>
             ))}
+            </div>
         </div>
     );
 };
