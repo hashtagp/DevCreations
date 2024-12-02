@@ -1,0 +1,105 @@
+/* Collapsible Button */
+.faq {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.faq * {
+    background-color: #fff;
+    color: #f66307;
+}
+
+/* Individual FAQ Items */
+.collapsible {
+    background-color: #f5f5f5; /* Neutral background */
+    color: #333; /* Dark text */
+    cursor: pointer;
+    padding: 15px;
+    width: 100%; /* Take full width within the container */
+    border: 1px solid #ddd; /* Light border */
+    text-align: left;
+    font-size: 18px;
+    border-radius: 8px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition */
+    margin-bottom: 10px; /* Space between items */
+    box-sizing: border-box;
+}
+
+.collapsible:hover,
+.active {
+    background-color: #f66307; /* Accent color for hover and active */
+    color: white; /* Contrast text */
+    transform: scale(1.02); /* Slight zoom effect */
+}
+
+/* Content Section */
+.faq-content {
+    padding: 15px;
+    display: none;
+    overflow: hidden;
+    background-color: #f9f9f9; /* Subtle gray background */
+    border-left: 3px solid #f66307; /* Accent border */
+    margin-top: -10px; /* Overlay effect */
+    border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Header */
+.faq header {
+    background-color: #f66307; /* Accent background */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 20px;
+    width: 100%; /* Full width for header */
+}
+
+.faq header h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* Section Container */
+.faq-container {
+    max-width: 80%; /* Container width for vertical alignment */
+    margin: 20px auto; /* Centered layout */
+    padding: 20px;
+    background: #ffffff; /* White background */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking of items */
+}
+
+/* Section Title */
+.faq-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #444; /* Neutral text color */
+    margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faq-container {
+        max-width: 95%;
+    }
+
+    .faq header h1 {
+        font-size: 28px;
+    }
+
+    .faq-container h2 {
+        font-size: 20px;
+    }
+
+    .collapsible {
+        font-size: 16px;
+        padding: 12px;
+    }
+}

@@ -19,38 +19,10 @@ import explore_certificate from "../../assets/explore_certificate.svg"
 import man_laptop from "../../assets/man_laptop.svg"
  
 const Carousel = () => {
-  // List of random image URLs (replace with actual URLs or image paths)
-  const images = [
-    banner, 
-    t_shirt, 
-    cap, 
-    cup_bottle,
-    merch
-  ];
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-    adaptiveHeight: true,
-  };
 
   return (
     <>
-    <div className="carousel-container">
-      <Slider {...settings}>
-        {images.map((image, index) => (
-          <div key={index} className="carousel-slide">
-            <img src={image} alt={`Slide ${index + 1}`} />
-          </div>
-        ))}
-      </Slider>
-    </div>
+    <Explore/>
     <marquee behavior="alternate" direction="left">
             <span class="star">★</span>BADGES
             <span class="star">★</span>CERTIFICATES
@@ -60,7 +32,6 @@ const Carousel = () => {
             <span class="star">★</span>T SHIRT
             <span class="star">★</span>BANNERS
     </marquee>
-    <Explore/>
     <div className="home-container">
       <div className='wardrobe'>
         <div className='wardrobe-img'>

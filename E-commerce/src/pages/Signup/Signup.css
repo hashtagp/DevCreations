@@ -87,14 +87,17 @@
 
 .sign-in h1, .sign-up h1{
     background-color: #fff;
+    color: #000;
 }
 
 .sign-in span, .sign-up span{
     background-color: #fff;
+    color: #000;
 }
 
 .sign-in a, .sign-up a{
     background-color: #fff;
+    color: #000;
 }
 
 .container.active .sign-up {
@@ -134,6 +137,14 @@
 }
 
 .social-icons a svg{
+    background-color: #fff;
+}
+
+.social-media{
+    background-color: #fff;
+}
+
+.social-media *{
     background-color: #fff;
 }
 

@@ -2,8 +2,12 @@ import React from "react";
 import "./Footer.css";
 import logo from "../assets/footer_logo.png"; // Replace with your logo path
 import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+
+  const navigate = useNavigate();
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -49,7 +53,7 @@ const Footer = () => {
           <h3>COMPANY</h3>
           <ul>
             <li><a href="#!">About</a></li>
-            <li><a href="#!">FAQ</a></li>
+            <li><a onClick={()=>navigate("/faq")}>FAQ</a></li>
             <li><a href="#!">Collaborations</a></li>
           </ul>
         </div>

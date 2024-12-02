@@ -9,6 +9,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Products from "./components/Products";
 import Contact from "./pages/Contact/Contact";
+import FAQ from "./pages/FAQ/FAQ";
+import TermsAndConditions from "./pages/TnC/TnC";
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <Route path="/payment" element={<Payment/>} />
           <Route path="/products" element={<Products/>} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/faq" element={<FAQ/>} />
+          <Route path="/termsandconditions" element={<TermsAndConditions/>} />
         </Routes>
         </div>
         <Footer/>

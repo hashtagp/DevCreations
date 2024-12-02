@@ -216,6 +216,10 @@
     background-color: #636466;
     text-shadow: 0px 4px 4px #000000;
   }
+
+  .map{
+    border-radius: 15px;
+  }
   
   /* --- Responsive --- */
   @media screen and (max-width: 1090px) {

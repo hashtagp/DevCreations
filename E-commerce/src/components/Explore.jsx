@@ -10,19 +10,19 @@ const Explore = () => {
   return (
     <div className='Products'>
       <div className="category">
-        <div className="product">
+        <div className="Product">
           <img src={cap} alt="cap" />
           <p>Customized caps</p>
         </div>
-        <div className="product">
+        <div className="Product">
           <img src={cup_bottle} alt="cup_bottle" />
           <p>Customized bottles</p>
         </div>
-        <div className="product">
+        <div className="Product">
           <img src={t_shirt} alt="t_shirt" />
           <p>Customized tees</p>
         </div>
-        <div className="product">
+        <div className="Product">
           <img src={merch} alt="merch" />
           <p>Our Merch</p>
         </div>
