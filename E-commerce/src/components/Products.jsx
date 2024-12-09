@@ -1,12 +1,12 @@
 import React from 'react'
 import './Products.css'
-import clothes from '../assets/t_shirt.png'
+import clothes from '../assets/t_shirt.svg'
 import cap from '../assets/cap.png'
 import bag from '../assets/bag.PNG'
 import bottle from '../assets/bottle.png'
 import mug from '../assets/mug.PNG'
-import hoodie from '../assets/clothes 2.1.PNG'
-import clothes3 from '../assets/clothes 3.png'
+import hoodie from '../assets/clothes 2.1.svg'
+import clothes3 from '../assets/clothes 3.svg'
 import nameBoard from '../assets/name board.png'
 import explore_certificate from "../assets/explore_certificate.svg"
 
@@ -24,13 +24,13 @@ const Products = () => {
 
         <div class="product">
             <img src={hoodie} alt="Hoddie"/>
-            <p>Hoddie</p>
+            <p>Oversized T-shirts</p>
             <a>Rs. 500</a>
         </div>
 
         <div class="product">
             <img src={clothes3} alt="Full Arm Round Neck T-shirt"/>
-            <p>Customized Full Arm Round Neck T-shirts</p>
+            <p>Customized Polos</p>
             <a>Rs. 300</a>
         </div>
 
