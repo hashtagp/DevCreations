@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Cart Page</title>
+    <link rel="icon" type="image/png" href="Dev logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Tailwind overrides */
+        .slider-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .slider img {
+            flex-shrink: 0;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: lightgray;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="py-10 px-4 lg:px-10 flex flex-col lg:flex-row lg:space-x-10 space-y-10 lg:space-y-0">
+        <!-- Left Panel -->
+        <div class="w-full lg:w-80 h-auto lg:h-[600px] rounded-md border-gray-300 border-2 p-4">
+            <div class="text-sm">
+                <img src="clothes.png" alt="Customized T-Shirt">
+                <br>
+                <span>⭐⭐⭐⭐☆ 4/5 on Trustpilot</span>
+            </div>
+            <br>
+            <p class="font-bold text-2xl py-2">Customised T-Shirt</p>
+            <p class="font-semibold "><i class="fa-solid fa-indian-rupee-sign px-2"></i> 400</p>
+            <br>
+            <button class="py-2 bg-orange-400 hover:bg-orange-500 rounded-2xl w-full font-semibold text-white">
+                Add to cart
+            </button>
+            <br>
+            <br>
+            <button class="py-2 bg-orange-400 hover:bg-orange-500 rounded-2xl w-full font-semibold text-white">
+                Purchase now
+            </button>
+            <br>
+            <p class="font-bold text-center py-4">Other purchase options</p>
+            <p class="font-semibold px-2">Over 536 bundles sold so far</p>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="w-full lg:w-[1000px] h-[600px] rounded-md border-gray-300 border-2 flex flex-col">
+            
+            <div class="slider-container h-full">
+                <!-- Slider -->
+                <div id="slider" class="slider">
+                    <img src="clothes 2.1.PNG" alt="T-Shirt Image 1" class="object-contain w-full max-h-[600px]">
+                    <img src="clothes 3.png" alt="T-Shirt Image 2" class="object-contain w-full max-h-[600px]">
+                    <img src="clothes 5.png" alt="T-Shirt Image 3" class="object-contain w-full max-h-[600px]">
+                </div>
+            </div>
+            
+
+            <!-- Slider Dots -->
+            <div class="slider-dots" id="sliderDots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slider.children.length;
+        let currentIndex = 0;
+
+        // Update Slider Position
+        function updateSlider() {
+            const offset = -currentIndex * 100;
+            slider.style.transform = `translateX(${offset}%)`;
+
+            // Update active dot
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentIndex].classList.add('active');
+        }
+
+        // Add Event Listeners to Dots
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentIndex = parseInt(dot.getAttribute('data-index'));
+                updateSlider();
+            });
+        });
+    </script>
+</body>
+
+</html>
