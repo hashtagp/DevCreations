@@ -11,6 +11,11 @@ const OrderSchema = new mongoose.Schema({
     },
   ],
   totalAmount: { type: Number, required: true },
+  status: { type: String, required: true, default: 'Pending' }, // New field
+  payment: {
+    method: { type: String, required: true },
+    status: { type: Boolean, required: true ,default: false},
+  }, // New field
 });
 
 const Order = mongoose.model('Order', OrderSchema);

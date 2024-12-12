@@ -2,8 +2,9 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import User from '../models/User.js';
+import { fetchUserById, updateUser, deleteUser } from '../controllers/userControllers.js';
 
-const orderRoutes = express.Router();
+const authRoutes = express.Router();
 
 // Generate Tokens
 const generateAccessToken = (userId) => {
@@ -18,7 +19,7 @@ const generateRefreshToken = (userId) => {
 let refreshTokens = [];
 
 // Register User
-orderRoutes.post('/register', async (req, res) => {
+authRoutes.post('/register', async (req, res) => {
   const { username, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -32,7 +33,7 @@ orderRoutes.post('/register', async (req, res) => {
 });
 
 // Login User
-orderRoutes.post('/login', async (req, res) => {
+authRoutes.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
   const user = await User.findOne({ username });
@@ -56,7 +57,7 @@ orderRoutes.post('/login', async (req, res) => {
 });
 
 // Refresh Access Token
-orderRoutes.post('/token', (req, res) => {
+authRoutes.post('/token', (req, res) => {
   const refreshToken = req.cookies.refreshToken;
 
   if (!refreshToken) return res.status(401).json({ error: 'No refresh token provided' });
@@ -71,7 +72,7 @@ orderRoutes.post('/token', (req, res) => {
 });
 
 // Logout User
-orderRoutes.post('/logout', (req, res) => {
+authRoutes.post('/logout', (req, res) => {
   const refreshToken = req.cookies.refreshToken;
 
   refreshTokens = refreshTokens.filter(token => token !== refreshToken);
@@ -79,4 +80,13 @@ orderRoutes.post('/logout', (req, res) => {
   res.status(200).send('Logged out');
 });
 
-export default orderRoutes;
+// Fetch User by ID
+authRoutes.get('/:userId', fetchUserById);
+
+// Update User
+authRoutes.put('/:userId', updateUser);
+
+// Delete User
+authRoutes.delete('/:userId', deleteUser);
+
+export default authRoutes;
