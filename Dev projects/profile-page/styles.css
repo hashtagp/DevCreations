@@ -117,6 +117,24 @@ body {
     z-index: 1;
 }
 
+<<<<<<< HEAD:Dev projects/profile-page/styles.css
+=======
+.sign-in h1, .sign-up h1{
+    background-color: #fff;
+    color: #000;
+}
+
+.sign-in span, .sign-up span{
+    background-color: #fff;
+    color: #000;
+}
+
+.sign-in a, .sign-up a{
+    background-color: #fff;
+    color: #000;
+}
+
+>>>>>>> 7523d842032c675a2126e4a40c7f80d0d7fd485d:E-commerce/src/pages/Signup/Signup.css
 .container.active .sign-up {
     transform: translateX(100%);
     opacity: 1;
@@ -150,6 +168,22 @@ body {
     height: 40px;
 }
 
+<<<<<<< HEAD:Dev projects/profile-page/styles.css
+=======
+.social-icons a svg{
+    background-color: #fff;
+}
+
+.social-media{
+    background-color: #fff;
+}
+
+.social-media *{
+    background-color: #fff;
+}
+
+/* Toggle-container styling */
+>>>>>>> 7523d842032c675a2126e4a40c7f80d0d7fd485d:E-commerce/src/pages/Signup/Signup.css
 .toggle-container {
     position: absolute;
     top: 0;
@@ -213,4 +247,24 @@ body {
 
 .container.active .toggle-right {
     transform: translateX(200%);
+<<<<<<< HEAD:Dev projects/profile-page/styles.css
+=======
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .sign-in, .sign-up {
+        width: 100%;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .toggle-container, .toggle-panel {
+        display: none;
+    }
+>>>>>>> 7523d842032c675a2126e4a40c7f80d0d7fd485d:E-commerce/src/pages/Signup/Signup.css
 }
