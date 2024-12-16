@@ -1,24 +1,23 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-import Navbar from './components/Navbar';
-import Signup from './pages/Signup/Signup';
-import Payment from "./pages/Payment/Payment";
-import Home from "./pages/Home/Home";
-import Footer from "./components/Footer";
+import Navbar from './components/Navbar.jsx';
+import Signup from './pages/Signup/Signup.jsx';
+import Payment from "./pages/Payment/Payment.jsx";
+import Home from "./pages/Home/Home.jsx";
+import Footer from "./components/Footer.jsx";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Products from "./components/Products";
-import Contact from "./pages/Contact/Contact";
-import FAQ from "./pages/FAQ/FAQ";
-import TermsAndConditions from "./pages/TnC/TnC";
-import Package from "./pages/Package/package";
-import Profile from "./pages/Profile/profile";
-import AboutUs from "./pages/about us/aboutus";
-import CartPage from "./pages/Cart/cart";
+import Products from "./components/Products.jsx";
+import Contact from "./pages/Contact/Contact.jsx";
+import FAQ from "./pages/FAQ/FAQ.jsx";
+import TermsAndConditions from "./pages/TnC/TnC.jsx";
+import Package from "./pages/Package/package.jsx";
+import Profile from "./pages/Profile/profile.jsx";
+import AboutUs from "./pages/about us/aboutus.jsx";
+import CartPage from "./pages/Cart/cart.jsx";
 
 function App() {
   return (
-    <Router>
       <div className="app">
         <Navbar />
         <Routes>
@@ -36,7 +35,6 @@ function App() {
         </Routes>
         <Footer />
       </div>
-    </Router>
   );
 }
 

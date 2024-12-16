@@ -3,7 +3,7 @@ import React from 'react';
 const Profile = () => {
   return (
     <div className="bg-gray-100 font-sans">
-      <main className="container mx-auto py-8 px-6">
+      <main className="profile mx-auto py-8 px-6">
         <div className="flex space-x-6">
           {/* Profile Section */}
           <div className="bg-blue-300 shadow-md rounded-lg p-6 flex flex-col items-center w-1/3">

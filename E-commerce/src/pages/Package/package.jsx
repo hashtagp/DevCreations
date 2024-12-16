@@ -27,12 +27,12 @@ const Package = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="package mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-6">TRACK YOUR PACKAGE</h1>
       <p className="text-gray-600 mb-4">Estimated Delivery: <span className="font-bold">21 June 2024</span></p>
 
       <div className="bg-blue-200 p-8 rounded-lg shadow-md mb-8">
-        <div className="flex justify-between items-center relative">
+        <div className="justify-between items-center relative">
           <div className="flex-1 text-center relative">
             <div className="w-8 h-8 mx-auto bg-orange-500 rounded-full"></div>
             <p className="mt-2 text-sm font-semibold">Ordered</p>

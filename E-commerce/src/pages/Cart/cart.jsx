@@ -19,7 +19,7 @@ const CartPage = () => {
 
   return (
     <div className="bg-white">
-      <div className="container mx-auto px-4 py-8">
+      <div className="cart mx-auto px-4 py-8">
         {/* Cart Page Header */}
         <h1 className="text-2xl font-bold mb-6">CART PAGE</h1>
 
@@ -86,7 +86,7 @@ const CartPage = () => {
             </div>
             <hr className="my-4" />
             <div className="flex justify-between font-bold text-lg">
-              <span>ESTIMATED TOTAL:</span>
+              <span>TOTAL:</span>
               <span id="estimated-total">Rs {estimatedTotal}</span>
             </div>
             <button className="w-full mt-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800">CHECKOUT</button>

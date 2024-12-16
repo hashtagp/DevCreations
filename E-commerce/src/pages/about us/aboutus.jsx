@@ -5,7 +5,7 @@ const AboutUs = () => {
     <div className="bg-gray-100 font-sans">
       {/* About Us Section */}
       <section className="bg-white py-12">
-        <div className="container mx-auto px-6">
+        <div className="about-us mx-auto px-6">
           <h3 className="text-3xl font-bold text-gray-800 mb-6">ABOUT US</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="grid grid-cols-2 gap-4">
@@ -25,7 +25,7 @@ const AboutUs = () => {
 
       {/* Who We Are Section */}
       <section className="bg-gray-50 py-12">
-        <div className="container mx-auto px-6">
+        <div className="about-us-cards mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="text-gray-700 text-lg leading-relaxed">
               <h3 className="text-3xl font-bold text-gray-800 mb-6">WHO WE ARE</h3>
@@ -40,7 +40,7 @@ const AboutUs = () => {
 
       {/* Our Mission Section */}
       <section className="bg-white py-12">
-        <div className="container mx-auto px-6">
+        <div className="about-us-cards mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <img src="https://via.placeholder.com/400x300" alt="" className="rounded-lg" />
             <div className="text-gray-700 text-lg leading-relaxed">
@@ -55,7 +55,7 @@ const AboutUs = () => {
 
       {/* Our Expertise Section */}
       <section className="bg-gray-50 py-12">
-        <div className="container mx-auto px-6">
+        <div className="about-us-cards mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="text-gray-700 text-lg leading-relaxed">
               <h3 className="text-3xl font-bold text-gray-800 mb-6">OUR EXPERTISE</h3>
@@ -70,7 +70,7 @@ const AboutUs = () => {
 
       {/* Why Choose Us Section */}
       <section className="bg-white py-12">
-        <div className="container mx-auto px-6">
+        <div className="about-us-cards mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <img src="https://via.placeholder.com/400x300" alt="" className="rounded-lg" />
             <div className="text-gray-700 text-lg leading-relaxed">
