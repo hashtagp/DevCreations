@@ -18,10 +18,10 @@ const Navbar = () => {
           {/* Desktop Nav Links */}
           <div className="one py-25 font-medium hidden sm:block">
             <ul className="nav-links">
-              <li onClick={()=>navigate("/")}>Home</li>
-              <li onClick={()=>navigate("/products")}>Shop</li>
-              <li onClick={()=>navigate("/products")}>Categories</li>
-              <li onClick={()=>navigate("/contact")}>Contact</li>
+              <li onClick={() => navigate("/")}>Home</li>
+              <li onClick={() => navigate("/products")}>Shop</li>
+              <li onClick={() => navigate("/products")}>Categories</li>
+              <li onClick={() => navigate("/contact")}>Contact</li>
             </ul>
           </div>
 
@@ -32,10 +32,10 @@ const Navbar = () => {
             </button>
             <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
               <ul>
-                <li><a href="#" onClick={()=>navigate("/")}>Home</a></li>
-                <li><a href="#" onClick={()=>navigate("/products")}>Shop</a></li>
-                <li><a href="#" onClick={()=>navigate("/products")}>Categories</a></li>
-                <li><a href="#" onClick={()=>navigate("/contact")}>Contact</a></li>
+                <li><a href="#" onClick={() => { toggleMenu(); navigate("/") }}>Home</a></li>
+                <li><a href="#" onClick={() => { toggleMenu(); navigate("/products") }}>Shop</a></li>
+                <li><a href="#" onClick={() => { toggleMenu(); navigate("/products") }}>Categories</a></li>
+                <li><a href="#" onClick={() => { toggleMenu(); navigate("/contact") }}>Contact</a></li>
               </ul>
             </div>
           </div>
@@ -49,16 +49,16 @@ const Navbar = () => {
 
           {/* Search Bar */}
           <div className="search-bar w-[15rem] hidden sm:block">
-            <input 
-              type="text" 
-              placeholder="Search products..." 
+            <input
+              type="text"
+              placeholder="Search products..."
             />
           </div>
 
           {/* Nav Icons */}
           <div className="nav-icons">
-            <a href="#" className="icon cart">🛒</a>
-            <a href="#" onClick={()=>navigate("/signup")} className="icon profile">👤</a>
+            <a href="#" className="icon cart" onClick={() => navigate("/cart")}>🛒</a>
+            <a href="#" onClick={() => navigate("/signup")} className="icon profile">👤</a>
           </div>
         </div>
       </nav>

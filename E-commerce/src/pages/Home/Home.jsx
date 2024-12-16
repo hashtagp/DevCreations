@@ -24,13 +24,13 @@ const Carousel = () => {
     <>
     <Explore/>
     <marquee behavior="alternate" direction="left">
-            <span class="star">★</span>BADGES
-            <span class="star">★</span>CERTIFICATES
-            <span class="star">★</span>DANGLERS
-            <span class="star">★</span>LETTERHEADS
-            <span class="star">★</span>TABLE CALENDERS
-            <span class="star">★</span>T SHIRT
-            <span class="star">★</span>BANNERS
+            <span className="star">★</span>BADGES
+            <span className="star">★</span>CERTIFICATES
+            <span className="star">★</span>DANGLERS
+            <span className="star">★</span>LETTERHEADS
+            <span className="star">★</span>TABLE CALENDERS
+            <span className="star">★</span>T SHIRT
+            <span className="star">★</span>BANNERS
     </marquee>
     <div className="home-container">
       <div className='wardrobe'>

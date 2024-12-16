@@ -8,15 +8,24 @@ import authRoutes from './routes/auth.js';
 import orderRoutes from './routes/orders.js';
 import userRoutes from './routes/users.js';
 import productRoutes from './routes/products.js';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cookieParser()); // To handle cookies
 
+// CORS configuration
+const corsOptions = {
+  origin: 'http://localhost:5173', // Update with your frontend URL
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+};
+app.use(cors(corsOptions));
+
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect("mongodb+srv://hashtagp27:Pritam272003@cluster0.qbbj5.mongodb.net/devcreations", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => console.log('MongoDB Connected'))

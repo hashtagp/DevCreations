@@ -2,9 +2,12 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import User from '../models/User.js';
+import dotenv from 'dotenv';
 import { fetchUserById, updateUser, deleteUser } from '../controllers/userControllers.js';
 
 const authRoutes = express.Router();
+
+dotenv.config();
 
 // Generate Tokens
 const generateAccessToken = (userId) => {
@@ -20,14 +23,28 @@ let refreshTokens = [];
 
 // Register User
 authRoutes.post('/register', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password } = req.body;
+  console.log(req.body);
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  const newUser = new User({ username, password: hashedPassword });
+  const newUser = new User({ username, email, password: hashedPassword });
   try {
     await newUser.save();
-    res.status(201).send('User registered');
+
+    const accessToken = generateAccessToken(newUser._id);
+    const refreshToken = generateRefreshToken(newUser._id);
+
+    refreshTokens.push(refreshToken);
+
+    // Send the refresh token as an HTTP-only cookie
+    res.cookie('refreshToken', refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production', // Use secure in production
+    });
+
+    res.status(201).json({ accessToken });
   } catch (error) {
+    console.log(error);
     res.status(400).json({ error });
   }
 });

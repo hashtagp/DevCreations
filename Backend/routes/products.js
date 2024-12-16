@@ -4,7 +4,7 @@ import { fetchAllProducts, fetchProductById } from '../controllers/productContro
 const productRoutes = express.Router();
 
 // Fetch All Products
-productRoutes.get('/', fetchAllProducts);
+productRoutes.get('/allProducts', fetchAllProducts);
 
 // Fetch Product by ID
 productRoutes.get('/:productId', fetchProductById);

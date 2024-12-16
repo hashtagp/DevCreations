@@ -193,6 +193,7 @@ marquee{
   width: 95%;
   background-color: #fff;
   text-align: center;
+  margin: auto;
 }
 
 .explore *{
@@ -316,6 +317,79 @@ marquee{
   object-fit: cover;
 }
 
+@media screen and (max-width: 810px) {
+  .banner span h1{
+    font-size: 3rem;
+  }
+
+  .banner span h4{
+    font-size: 2rem;
+  }
+
+  .banner span p{
+    font-size: 1rem;
+  }
+
+  .banner img{
+    height: 250px;
+  }
+
+  .promo-text button{
+    font-size: 0.8rem;
+  }
+
+  .promo{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .promo-text{
+    padding: 0px;
+  }
+
+  .promo-text h1{
+    font-size: 30px;
+  }
+
+  .promo-text p{
+    font-size: 20px;
+  }
+
+  .promo-text button{
+    font-size: 0.8rem;
+  }
+
+  .explore h1{
+    font-size: 2rem;
+  }
+
+  .explore hr{
+    width: 25%;
+  }
+
+  .explore h4{
+    font-size: 1.5rem;
+  }
+
+  .explore button{
+    font-size: 0.8rem;
+  }
+
+  .explore-container{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .explore-card h3{
+    font-size: 2rem;
+  }
+
+  .explore-card img{
+    height: 200px;
+  }
+
+  
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .carousel-slide {
@@ -326,13 +400,92 @@ marquee{
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 630px) {
+  .banner span h1{
+    font-size: 2rem;
+  }
+
+  .banner span h4{
+    font-size: 1.5rem;
+  }
+
+  .banner span p{
+    font-size: 0.75rem;
+  }
+
+  .banner img{
+    height: 250px;
+  }
+
+  .wardrobe-text h1{
+   font-size: 30px;
+  }
+  
+  .wardrobe-text p{
+    font-size: 20px;
+  }
+  
+  
+}
+
+@media  screen and (max-width: 400px) {
+  .badge h1{
+    font-size: 25px;
+  }
+  .badge img{
+    margin-left: 10%;
+    margin-top: -30px;
+    height: 150px;
+  }
+
+  .wardrobe-img img{
+    margin-left: -30px;
+  }
+  
+}
+@media screen and (max-width: 485px) {
   .carousel-container {
     padding: 5px;
   }
   .carousel-slide {
     height: 200px; /* Adjust height for mobile view */
   }
+
+  .banner{
+    padding: 10px;
+  }
+
+  .banner span h1{
+    font-size: 2rem;
+  }
+
+  .banner span h4{
+    font-size: 1.5rem;
+  }
+
+  .banner span p{
+    font-size: 0.75rem;
+  }
+
+  .banner img{
+    display: none;
+  }
+
+  .explore-container {
+    grid-template-columns: 1fr;
+  }
+
+  .wardrobe-text h1{
+    font-size: 20px;
+   }
+   
+   .wardrobe-text p{
+     font-size: 10px;
+   }
+
+    .wardrobe{
+      min-height: fit-content;
+    }
 }
 
 @media screen and (max-width: 1270px) {
