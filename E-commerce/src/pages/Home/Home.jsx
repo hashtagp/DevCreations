@@ -17,8 +17,11 @@ import explore_banner from "../../assets/explore_banner.svg"
 import explore_calender from "../../assets/explore_calender.svg"
 import explore_certificate from "../../assets/explore_certificate.svg"
 import man_laptop from "../../assets/man_laptop.svg"
+import { useNavigate } from 'react-router-dom';
  
 const Carousel = () => {
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -92,7 +95,7 @@ const Carousel = () => {
             <img src={explore_certificate} alt="" /> 
           </div>
         </div>
-        <button>EXPLORE MORE</button>
+        <button onClick={()=>navigate("/products")}>EXPLORE MORE</button>
       </div>
       <div className="promo">
         <span className="promo-text">

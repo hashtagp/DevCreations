@@ -4,15 +4,15 @@ import { StoreContext } from '../../context/StoreContext';
 const CartPage = () => {
   const { cartItems, addToCart, removeFromCart, getTotalCartValue } = useContext(StoreContext);
 
-  const updateQuantity = (change, itemId, event) => {
-    event.stopPropagation();
-    console.log(`Updating quantity for itemId=${itemId} with change=${change}`);
-    if (change > 0) {
-      addToCart({ ...cartItems[itemId], id: itemId });
-    } else {
-      removeFromCart(itemId);
-    }
-  };
+  // const updateQuantity = (change, itemId, event) => {
+  //   event.stopPropagation();
+  //   console.log(`Updating quantity for itemId=${itemId} with change=${change}`);
+  //   if (change > 0) {
+  //     addToCart({ ...cartItems[itemId], id: itemId });
+  //   } else {
+  //     removeFromCart(itemId);
+  //   }
+  // };
 
   const calculateTotal = (quantity, price) => quantity * price;
 
@@ -43,9 +43,9 @@ const CartPage = () => {
                   <div className="flex items-center space-x-4">
                     <span className="font-medium">Rs {cartItems[itemId].price}</span>
                     <div className="flex items-center border rounded">
-                      <button className="px-2 py-1 text-gray-600" onClick={(event) => updateQuantity(-1, itemId, event)}>-</button>
+                      <button className="px-2 py-1 text-gray-600" onClick={(event) => removeFromCart(itemId)}>-</button>
                       <input id={`quantity-${index}`} type="text" value={cartItems[itemId].quantity} className="w-8 text-center border-l border-r" readOnly />
-                      <button className="px-2 py-1 text-gray-600" onClick={(event) => updateQuantity(1, itemId, event)}>+</button>
+                      <button className="px-2 py-1 text-gray-600" onClick={(event) => addToCart({ ...cartItems[itemId], id: itemId })}>+</button>
                     </div>
                     <span id={`total-${index}`} className="font-medium">Rs {calculateTotal(cartItems[itemId].quantity, cartItems[itemId].price)}</span>
                   </div>
