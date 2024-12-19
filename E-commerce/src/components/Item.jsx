@@ -6,9 +6,9 @@ import add_icon_green from "../assets/add_icon_green.png";
 import remove_icon_red from "../assets/remove_icon_red.png";
 
 const Item = ({ id, name, price, image }) => {
+  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
 
-  const {cartItems,addToCart,removeFromCart,url}=useContext(StoreContext);
-
+  const item = { id, name, price, image };
 
   return (
     <div className='product-item'>
@@ -16,11 +16,11 @@ const Item = ({ id, name, price, image }) => {
         <img className='product-item-image' src={image} alt='' />
         {
           !cartItems[id]
-          ?<img className='add' onClick={()=>addToCart(id)} src={add_icon_white} alt=""/>
+          ?<img className='add' onClick={() => addToCart(item)} src={add_icon_white} alt=""/>
           :<div className='product-item-Count'>
-            <img className="add1" onClick={()=>removeFromCart(id)} src={remove_icon_red} alt=''/>
-            <p>{cartItems[id]}</p>
-            <img className="add2" onClick={()=>addToCart(id)} src={add_icon_green} alt=''/>
+            <img className="add1" onClick={() => removeFromCart(id)} src={remove_icon_red} alt=''/>
+            <p>{cartItems[id].quantity}</p>
+            <img className="add2" onClick={() => addToCart(item)} src={add_icon_green} alt=''/>
           </div>
         }
       </div>

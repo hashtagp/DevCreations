@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { StoreContext } from '../../context/StoreContext';
 
 const CartPage = () => {
-  const [quantities, setQuantities] = useState([3, 2]);
-  const prices = [500, 300];
+  const { cartItems, addToCart, removeFromCart, getTotalCartValue } = useContext(StoreContext);
 
-  const updateQuantity = (change, price, index) => {
-    const newQuantities = [...quantities];
-    newQuantities[index] = Math.max(0, newQuantities[index] + change);
-    setQuantities(newQuantities);
+  const updateQuantity = (change, itemId, event) => {
+    event.stopPropagation();
+    console.log(`Updating quantity for itemId=${itemId} with change=${change}`);
+    if (change > 0) {
+      addToCart({ ...cartItems[itemId], id: itemId });
+    } else {
+      removeFromCart(itemId);
+    }
   };
 
   const calculateTotal = (quantity, price) => quantity * price;
 
-  const subtotal = quantities.reduce((acc, quantity, index) => acc + calculateTotal(quantity, prices[index]), 0);
-  const shipping = 100;
-  const salesTax = 300;
+  const subtotal = getTotalCartValue();
+  const shipping = subtotal > 0 ? 100 : 0;
+  const salesTax = subtotal > 0 ? 300 : 0;
   const estimatedTotal = subtotal + shipping + salesTax;
 
   return (
@@ -29,43 +33,24 @@ const CartPage = () => {
           <div className="w-full lg:w-2/3 bg-orange-200 p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-bold mb-4">Products</h2>
             <div id="cart-items" className="space-y-6">
-              {/* Product Item 1 */}
-              <div className="flex flex-wrap items-center justify-between border-b pb-4 rounded-lg p-4">
-                <img src="https://via.placeholder.com/150" alt="T-Shirt" className="w-40 h-40 rounded-lg object-cover" />
-                <div className="flex-1 ml-4">
-                  <h2 className="text-md font-semibold">DEV CUSTOMIZABLE T-SHIRTS</h2>
-                  <p className="text-md text-gray-800">SIZE: MEDIUM</p>
-                  <p className="text-sm text-gray-800">COLOUR: WHITE</p>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <span className="font-medium">Rs 500</span>
-                  <div className="flex items-center border rounded">
-                    <button className="px-2 py-1 text-gray-600" onClick={() => updateQuantity(-1, 500, 0)}>-</button>
-                    <input id="quantity-0" type="text" value={quantities[0]} className="w-8 text-center border-l border-r" readOnly />
-                    <button className="px-2 py-1 text-gray-600" onClick={() => updateQuantity(1, 500, 0)}>+</button>
+              {Object.keys(cartItems).map((itemId, index) => (
+                <div key={itemId} className="flex flex-wrap items-center justify-between border-b pb-4 rounded-lg p-4">
+                  <img src={cartItems[itemId].image} alt={cartItems[itemId].name} className="w-40 h-40 rounded-lg object-cover" />
+                  <div className="flex-1 ml-4">
+                    <h2 className="text-md font-semibold">{cartItems[itemId].name}</h2>
+                    <p className="text-md text-gray-800">Quantity: {cartItems[itemId].quantity}</p>
                   </div>
-                  <span id="total-0" className="font-medium">Rs {calculateTotal(quantities[0], 500)}</span>
-                </div>
-              </div>
-
-              {/* Product Item 2 */}
-              <div className="flex flex-wrap items-center justify-between border-b pb-4 rounded-lg p-4">
-                <img src="https://via.placeholder.com/150" alt="Calendar" className="w-40 h-40 rounded-lg object-cover" />
-                <div className="flex-1 ml-4">
-                  <h2 className="text-lg font-semibold">DEV CUSTOMIZABLE CALENDAR</h2>
-                  <p className="text-sm text-gray-500">MODEL: PAPER</p>
-                  <p className="text-sm text-gray-500">COLOUR: WHITE</p>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <span className="font-medium">Rs 300</span>
-                  <div className="flex items-center border rounded">
-                    <button className="px-2 py-1 text-gray-600" onClick={() => updateQuantity(-1, 300, 1)}>-</button>
-                    <input id="quantity-1" type="text" value={quantities[1]} className="w-8 text-center border-l border-r" readOnly />
-                    <button className="px-2 py-1 text-gray-600" onClick={() => updateQuantity(1, 300, 1)}>+</button>
+                  <div className="flex items-center space-x-4">
+                    <span className="font-medium">Rs {cartItems[itemId].price}</span>
+                    <div className="flex items-center border rounded">
+                      <button className="px-2 py-1 text-gray-600" onClick={(event) => updateQuantity(-1, itemId, event)}>-</button>
+                      <input id={`quantity-${index}`} type="text" value={cartItems[itemId].quantity} className="w-8 text-center border-l border-r" readOnly />
+                      <button className="px-2 py-1 text-gray-600" onClick={(event) => updateQuantity(1, itemId, event)}>+</button>
+                    </div>
+                    <span id={`total-${index}`} className="font-medium">Rs {calculateTotal(cartItems[itemId].quantity, cartItems[itemId].price)}</span>
                   </div>
-                  <span id="total-1" className="font-medium">Rs {calculateTotal(quantities[1], 300)}</span>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
 

@@ -8,43 +8,79 @@ const StoreContextProvider = (props) => {
   const [token, setToken] = useState("");
   const url = "http://localhost:5000";
 
-  const addToCart = async (itemId) => {
-    if (!cartItems[itemId]) {
-      setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
-    } else {
-      setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-    }
+  const addToCart = async (item) => {
+    const { id, price } = item;
+    console.log("Adding item to cart:", item);
     if (token) {
-      await axios.post(url + "/api/cart/add", { itemId }, { headers: { Authorization: `Bearer ${token}` } });
+      try {
+        const response = await axios.post(url + "/api/cart/add", { itemId: id, quantity: 1, price }, { headers: { Authorization: `Bearer ${token}` } });
+        console.log("Item added to cart on server:", response.data);
+        setCartItems((prev) => {
+          const newCartItems = { ...prev };
+          if (!newCartItems[id]) {
+            newCartItems[id] = { ...item, quantity: 1 };
+            console.log("Item added to cart:", newCartItems[id]);
+          } else {
+            newCartItems[id].quantity += 1;
+            console.log("Item quantity updated:", newCartItems[id]);
+          }
+          return newCartItems;
+        });
+      } catch (error) {
+        console.error("Error adding item to cart on server:", error);
+      }
     }
   };
 
   const removeFromCart = async (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+    console.log("Removing item from cart:", itemId);
     if (token) {
-      await axios.post(url + "/api/cart/remove", { itemId }, { headers: { Authorization: `Bearer ${token}` } });
+      try {
+        const response = await axios.post(url + "/api/cart/remove", { itemId }, { headers: { Authorization: `Bearer ${token}` } });
+        console.log("Item removed from cart on server:", response.data);
+        setCartItems((prev) => {
+          const newCartItems = { ...prev };
+          if (newCartItems[itemId].quantity > 1) {
+            newCartItems[itemId].quantity -= 1;
+            console.log("Item quantity decreased:", newCartItems[itemId]);
+          } else {
+            delete newCartItems[itemId];
+            console.log("Item removed from cart:", itemId);
+          }
+          return newCartItems;
+        });
+      } catch (error) {
+        console.error("Error removing item from cart on server:", error);
+      }
     }
   };
 
   const getTotalCartValue = () => {
     let totalValue = 0;
-    for (const item in cartItems) {
-      if (cartItems[item] > 0) {
-        let itemInfo = food_list.find((product) => product._id === item);
-        totalValue += itemInfo.price * cartItems[item];
-      }
+    for (const itemId in cartItems) {
+      const item = cartItems[itemId];
+      totalValue += item.price * item.quantity;
     }
     return totalValue;
   };
 
   const loadCartData = async (token) => {
-    const response = await axios.post(url + "/api/cart/get", {}, { headers: { Authorization: `Bearer ${token}` } });
-    setCartItems(response.data.cartData);
+    try {
+      const response = await axios.post(url + "/api/cart/get", {}, { headers: { Authorization: `Bearer ${token}` } });
+      console.log("Loaded cart data from server:", response.data);
+      setCartItems(response.data.reduce((acc, item) => {
+        acc[item.itemId] = item;
+        return acc;
+      }, {}));
+    } catch (error) {
+      console.error("Error loading cart data from server:", error);
+    }
   };
 
   const saveToken = (token) => {
     localStorage.setItem("token", token);
     setToken(token);
+    loadCartData(token); // Load cart data after setting the token
   };
 
   const clearToken = () => {

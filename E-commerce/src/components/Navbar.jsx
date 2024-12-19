@@ -10,6 +10,15 @@ const Navbar = () => {
 
   const toggleMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
 
+  const handleProfileClick = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/profile');
+    } else {
+      navigate('/signup');
+    }
+  };
+
   return (
     <div>
       <nav className="navbar">
@@ -58,7 +67,7 @@ const Navbar = () => {
           {/* Nav Icons */}
           <div className="nav-icons">
             <a href="#" className="icon cart" onClick={() => navigate("/cart")}>🛒</a>
-            <a href="#" onClick={() => navigate("/signup")} className="icon profile">👤</a>
+            <a href="#" onClick={handleProfileClick} className="icon profile">👤</a>
           </div>
         </div>
       </nav>
