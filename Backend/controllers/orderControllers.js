@@ -1,6 +1,7 @@
 import Order from '../models/Order.js';
 import User from '../models/User.js';
 import jwt from 'jsonwebtoken';
+import Razorpay from 'razorpay';
 
 // Middleware to verify JWT
 export const verifyToken = (req, res, next) => {
@@ -24,8 +25,9 @@ export const fetchAllOrders = async (req, res) => {
 export const fetchOrderById = async (req, res) => {
   const { orderId } = req.params;
   const order = await Order.findById(orderId);
+  console.log("reached.....!!!!");
 
-  if (!order || order.userId !== req.userId) {
+  if (!order || order.userId !== req.user.id) {
     return res.status(404).json({ error: 'Order not found' });
   }
   res.status(200).json(order);
@@ -85,5 +87,89 @@ export const updateOrderStatus = async (req, res) => {
     res.status(200).json(order);
   } catch (error) {
     res.status(400).json({ error });
+  }
+};
+
+// Place Order
+export const placeOrder = async (req, res) => {
+  try {
+    const { address, items, amount } = req.body;
+    const userId = req.user.id;
+
+    const newOrder = new Order({
+      userId,
+      items,
+      totalAmount: amount,
+      status: 'Pending',
+      payment: {
+        method: 'Razorpay',
+        status: false,
+      },
+    });
+
+    await newOrder.save();
+
+    // Create Razorpay order
+    const instance = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    });
+
+    const options = {
+      amount: amount * 100, // amount in the smallest currency unit
+      currency: "INR",
+      receipt: newOrder._id.toString(),
+    };
+
+    const order = await instance.orders.create(options);
+
+    res.status(201).json({
+      success: true,
+      newOrderId: newOrder._id,
+      orderId: order.id,
+      amount: options.amount,
+      key: process.env.RAZORPAY_KEY_ID,
+    });
+  } catch (error) {
+    console.error("Error placing order:", error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+// Verify Payment
+export const verifyPayment = async (req, res) => {
+  try {
+    const { success, orderId } = req.body;
+
+    if (success) {
+      const order = await Order.findById(orderId);
+      if (!order) {
+        return res.status(404).json({ error: 'Order not found' });
+      }
+
+      order.payment.status = true;
+      order.status = 'Confirmed';
+      await order.save();
+
+      res.status(200).json({ success: true });
+    } else {
+      res.status(400).json({ error: 'Payment verification failed' });
+    }
+  } catch (error) {
+    console.error("Error verifying payment:", error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+// Fetch User Orders
+export const fetchUserOrders = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const orders = await Order.find({ userId });
+
+    res.status(200).json({ data: orders });
+  } catch (error) {
+    console.error("Error fetching user orders:", error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };

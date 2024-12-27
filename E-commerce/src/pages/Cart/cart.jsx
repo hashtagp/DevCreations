@@ -1,8 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StoreContext } from '../../context/StoreContext';
+import { useNavigate } from 'react-router-dom';
+import { use } from 'react';
 
 const CartPage = () => {
-  const { cartItems, addToCart, removeFromCart, getTotalCartValue } = useContext(StoreContext);
+  const { cartItems, token, addToCart, removeFromCart, getTotalCartValue } = useContext(StoreContext);
+  const navigate = useNavigate();
 
   // const updateQuantity = (change, itemId, event) => {
   //   event.stopPropagation();
@@ -15,6 +18,18 @@ const CartPage = () => {
   // };
 
   const calculateTotal = (quantity, price) => quantity * price;
+
+  const redirect = () => {
+    if (!token) {
+      console.log("Token not found. Redirecting to cart page.");
+      navigate('/cart');
+    } else if (getTotalCartValue() === 0) {
+      console.log("Cart is empty. Redirecting to cart page.");
+      navigate('/cart');
+    }else{
+      navigate('/placeOrder');
+    }
+  }
 
   const subtotal = getTotalCartValue();
   const shipping = subtotal > 0 ? 100 : 0;
@@ -74,7 +89,7 @@ const CartPage = () => {
               <span>TOTAL:</span>
               <span id="estimated-total">Rs {estimatedTotal}</span>
             </div>
-            <button className="w-full mt-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800">CHECKOUT</button>
+            <button className="w-full mt-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800" onClick={()=>redirect()}>CHECKOUT</button>
           </div>
         </div>
       </div>

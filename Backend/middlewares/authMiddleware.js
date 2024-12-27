@@ -5,9 +5,11 @@ dotenv.config();
 
 export const verifyToken = (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
+  console.log("Token received:", token);
 
   if (!token) {
-    return res.status(401).json({ error: 'Access denied. No token provided.' });
+    console.log("No token provided.");
+    return res.status(403).json({ error: 'Access denied. No token provided.' });
   }
 
   try {

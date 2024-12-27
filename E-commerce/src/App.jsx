@@ -14,6 +14,9 @@ import TermsAndConditions from "./pages/TnC/TnC.jsx";
 import Package from "./pages/Package/package.jsx";
 import Profile from "./pages/Profile/profile.jsx";
 import AboutUs from "./pages/about us/aboutus.jsx";
+import Verify from "./pages/verify/verify.jsx";
+import MyOrders from "./pages/MyOrders/MyOrders.jsx";
+import PlaceOrder from "./pages/placeOrder/placeOrder.jsx";
 import CartPage from "./pages/Cart/cart.jsx";
 
 function App() {
@@ -28,10 +31,14 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-          <Route path="/package" element={<Package />} />
+          <Route path="/package/:orderId" element={<Package />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/verify" element={<Verify />} />
+          <Route path="/myOrders" element={<MyOrders />} />
+          <Route path="/placeOrder" element={<PlaceOrder />} />
+          <Route path="*" element={<Home/>} />
         </Routes>
         <Footer />
       </div>

@@ -8,7 +8,10 @@ import authRoutes from './routes/auth.js';
 import orderRoutes from './routes/orders.js';
 import userRoutes from './routes/users.js';
 import productRoutes from './routes/products.js';
-import cartRoutes from './routes/cart.js'; // Import cart routes
+import cartRoutes from './routes/cart.js';
+import verifyOrderRoutes from './routes/verifyOrder.js'; // Import verify order routes
+import myOrdersRoutes from './routes/myOrders.js'; // Import my orders routes
+import placeOrderRoutes from './routes/placeOrder.js'; // Import place order routes
 import cors from 'cors';
 
 dotenv.config();
@@ -29,16 +32,22 @@ app.use(cors(corsOptions));
 mongoose.connect("mongodb+srv://hashtagp27:Pritam272003@cluster0.qbbj5.mongodb.net/devcreations", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 30000,
+  socketTimeoutMS: 45000,
 }).then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
+
 
 // Use Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
-app.use('/api/cart', cartRoutes); // Use cart routes
+app.use('/api/cart', cartRoutes);
+app.use('/api/order', verifyOrderRoutes); // Use verify order routes
+app.use('/api/order', myOrdersRoutes); // Use my orders routes
+app.use('/api/order', placeOrderRoutes); // Use place order routes
 
 // Start the Server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));  
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

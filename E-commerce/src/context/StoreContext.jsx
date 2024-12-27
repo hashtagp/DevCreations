@@ -6,6 +6,8 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState("");
+  const [value, setValue] = useState(false);
+  const [item_list, setItemList] = useState([]);
   const url = "http://localhost:5000";
 
   const addToCart = async (item) => {
@@ -61,6 +63,7 @@ const StoreContextProvider = (props) => {
       const item = cartItems[itemId];
       totalValue += item.price * item.quantity;
     }
+    setValue(true);
     return totalValue;
   };
 
@@ -99,16 +102,30 @@ const StoreContextProvider = (props) => {
     loadData();
   }, []);
 
+  useEffect(() => {
+    async function fetchItemList() {
+      try {
+        const response = await axios.get(url + "/api/products/allProducts");
+        setItemList(response.data);
+      } catch (error) {
+        console.error("Error fetching item list:", error);
+      }
+    }
+    fetchItemList();
+  }, []);
+
   const contextValue = {
     cartItems,
     setCartItems,
     addToCart,
     removeFromCart,
     getTotalCartValue,
+    value,
     url,
     token,
     setToken: saveToken,
     clearToken,
+    item_list,
   };
 
   return (

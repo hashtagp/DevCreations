@@ -18,7 +18,7 @@ const Profile = () => {
 
           {/* Action Buttons Section */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full lg:w-2/3">
-            <a href="#" className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300">Your Orders</a>
+            <a href="#" className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300" onClick={()=>navigate("/myOrders")}>Your Orders</a>
             <a href="#" className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300">Your Address</a>
             <a href="#" className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300">Track Your Order</a>
             <a href="#" className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300">Purchase History</a>
