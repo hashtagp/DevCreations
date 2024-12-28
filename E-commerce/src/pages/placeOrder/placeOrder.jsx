@@ -32,7 +32,7 @@ const PlaceOrder = () => {
     let orderData = {
       address: data,
       items: orderItems,
-      amount: getTotalCartValue(),
+      amount: getTotalCartValue()+400,
     };
     let response = await axios.post(url + "/api/order/place", orderData, { headers: { Authorization: `Bearer ${token}` } });
     if (response.data.success) {
@@ -112,19 +112,23 @@ const PlaceOrder = () => {
         <div className="cart-total">
           <h2>Cart Totals</h2>
           <div>
-            <div className="cart-total-details">
-              <p>Subtotal</p>
-              <p>&#8377;{getTotalCartValue()}</p>
+            <div className="cart-total-details flex justify-between py-2">
+              <span>Subtotal</span>
+              <span>&#8377;{getTotalCartValue()}</span>
             </div>
             <hr />
-            <div className="cart-total-details">
-              <p>Delivery Fee</p>
-              <p><del>&#8377;30</del></p>
+            <div className="cart-total-details flex justify-between py-2">
+              <span>Shipping</span>
+              <span>&#8377;100</span>
+            </div>
+            <div className="cart-total-details flex justify-between py-2">
+              <span>Sales Tax</span>
+              <span>&#8377;300</span>
             </div>
             <hr />
-            <div className="cart-total-details">
+            <div className="cart-total-details mt-2 flex justify-between py-2">
               <b>Total</b>
-              <b>&#8377;{getTotalCartValue()}</b>
+              <b>&#8377;{getTotalCartValue()+400}</b>
             </div>
           </div>
           <button type="submit">Payment</button>

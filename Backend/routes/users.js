@@ -5,7 +5,7 @@ import { verifyToken } from '../controllers/orderControllers.js';
 const userRoutes = express.Router();
 
 // Fetch User by ID
-userRoutes.get('/:userId', verifyToken, fetchUserById);
+userRoutes.get('/profile', verifyToken, fetchUserById);
 
 // Update User
 userRoutes.put('/:userId', verifyToken, updateUser);

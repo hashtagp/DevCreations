@@ -1,0 +1,36 @@
+.return-policy {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.return-policy h1,.return-policy h2,.return-policy h3 {
+    color: #333;
+}
+
+.return-policy h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.return-policy h2 {
+    font-size: 20px;
+    text-decoration: underline #f66307;
+}
+
+.return-policy p {
+    margin: 10px 0;
+    text-align: justify;
+}
+
+.return-policy ul {
+    margin: 10px 0 10px 20px;
+}
+
+.return-policy footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}

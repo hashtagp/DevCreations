@@ -29,7 +29,6 @@ const Navbar = () => {
             <ul className="nav-links">
               <li onClick={() => navigate("/")}>Home</li>
               <li onClick={() => navigate("/products")}>Shop</li>
-              <li onClick={() => navigate("/products")}>Categories</li>
               <li onClick={() => navigate("/contact")}>Contact</li>
             </ul>
           </div>

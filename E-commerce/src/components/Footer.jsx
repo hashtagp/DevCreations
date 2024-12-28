@@ -63,7 +63,7 @@ const Footer = () => {
           <h3>LEGAL</h3>
           <ul>
             <li><a onClick={()=>navigate("/terms-and-conditions")}>Terms and Conditions</a></li>
-            <li><a href="#!">Return Policy</a></li>
+            <li><a onClick={()=>navigate("/return-policy")}>Return Policy</a></li>
             <li><a onClick={()=>navigate("/contact")}>Support</a></li>
           </ul>
         </div>

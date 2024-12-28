@@ -7,7 +7,7 @@ const orderRoutes = express.Router();
 orderRoutes.get('/', verifyToken, fetchAllOrders);
 
 // Fetch Order by ID
-orderRoutes.get('/:orderId', verifyToken, fetchOrderById);
+orderRoutes.get('/track', verifyToken, fetchOrderById);
 
 // Add Item to Cart
 orderRoutes.post('/cart', verifyToken, addItemToCart);

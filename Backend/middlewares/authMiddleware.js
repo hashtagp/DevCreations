@@ -6,6 +6,9 @@ dotenv.config();
 export const verifyToken = (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
   console.log("Token received:", token);
+  if(req.originalUrl === '/api/orders/track'){
+    console.log("reached track order");
+  }
 
   if (!token) {
     console.log("No token provided.");

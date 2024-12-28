@@ -18,6 +18,7 @@ import Verify from "./pages/verify/verify.jsx";
 import MyOrders from "./pages/MyOrders/MyOrders.jsx";
 import PlaceOrder from "./pages/placeOrder/placeOrder.jsx";
 import CartPage from "./pages/Cart/cart.jsx";
+import ReturnPolicy from "./pages/ReturnPolicy/ReturnPolicy.jsx";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/verify" element={<Verify />} />
           <Route path="/myOrders" element={<MyOrders />} />
           <Route path="/placeOrder" element={<PlaceOrder />} />
+          <Route path="/return-policy" element={<ReturnPolicy />} />
           <Route path="*" element={<Home/>} />
         </Routes>
         <Footer />

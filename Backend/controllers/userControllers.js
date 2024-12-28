@@ -2,13 +2,13 @@ import User from '../models/User.js';
 
 // Fetch User by ID
 export const fetchUserById = async (req, res) => {
-  const { userId } = req.params;
+  const userId = req.user.id;
   const user = await User.findById(userId);
 
   if (!user) {
     return res.status(404).json({ error: 'User not found' });
   }
-  res.status(200).json(user);
+  res.status(200).json({success: true, user});
 };
 
 // Update User
