@@ -19,6 +19,7 @@ import MyOrders from "./pages/MyOrders/MyOrders.jsx";
 import PlaceOrder from "./pages/placeOrder/placeOrder.jsx";
 import CartPage from "./pages/Cart/cart.jsx";
 import ReturnPolicy from "./pages/ReturnPolicy/ReturnPolicy.jsx";
+import Product from "./components/product.jsx";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/product/:productId" element={<Product/>} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />

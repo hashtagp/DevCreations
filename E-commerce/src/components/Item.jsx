@@ -4,14 +4,16 @@ import { StoreContext } from '../context/StoreContext';
 import add_icon_white from "../assets/add_icon_white.png";
 import add_icon_green from "../assets/add_icon_green.png";
 import remove_icon_red from "../assets/remove_icon_red.png";
+import { useNavigate } from 'react-router-dom';
 
 const Item = ({ id, name, price, image }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  const navigate = useNavigate();
 
   const item = { id, name, price, image };
 
   return (
-    <div className='product-item'>
+    <div onClick={()=>navigate(`/product/${id}`)} className='product-item'>
       <div className="product">
         <img className='product-item-image' src={image} alt='' />
         {

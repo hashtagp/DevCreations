@@ -42,7 +42,6 @@ const Navbar = () => {
               <ul>
                 <li><a href="#" onClick={() => { toggleMenu(); navigate("/") }}>Home</a></li>
                 <li><a href="#" onClick={() => { toggleMenu(); navigate("/products") }}>Shop</a></li>
-                <li><a href="#" onClick={() => { toggleMenu(); navigate("/products") }}>Categories</a></li>
                 <li><a href="#" onClick={() => { toggleMenu(); navigate("/contact") }}>Contact</a></li>
               </ul>
             </div>

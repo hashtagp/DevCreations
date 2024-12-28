@@ -108,6 +108,7 @@ export const placeOrder = async (req, res) => {
     const newOrder = new Order({
       userId,
       items,
+      address,
       totalAmount: amount,
       status: 'Pending',
       payment: {

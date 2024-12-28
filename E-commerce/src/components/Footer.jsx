@@ -71,7 +71,7 @@ const Footer = () => {
         {/* Contact Section */}
         <div className="footer-section">
           <h3>CONTACTS</h3>
-          <p>+91 96863 57511</p>
+          <p>+91 73378 40612</p>
           <ul className="social-links">
             <li><FaLinkedin /></li>
             <li><FaInstagram /></li>

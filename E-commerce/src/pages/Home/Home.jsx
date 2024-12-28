@@ -24,38 +24,38 @@ const Carousel = () => {
   const navigate = useNavigate();
 
   return (
-    <>
-    <Explore/>
-    <marquee behavior="alternate" direction="left">
-            <span className="star">★</span>BADGES
-            <span className="star">★</span>CERTIFICATES
-            <span className="star">★</span>DANGLERS
-            <span className="star">★</span>LETTERHEADS
-            <span className="star">★</span>TABLE CALENDERS
-            <span className="star">★</span>T SHIRT
-            <span className="star">★</span>BANNERS
-    </marquee>
-    <div className="home-container">
-      <div className='wardrobe'>
-        <div className='wardrobe-img'>
-          <img src={om} alt="om" />
+    <div className="home-content">
+      <Explore/>
+      <marquee behavior="alternate" direction="left">
+        <span className="star">★</span>BADGES
+        <span className="star">★</span>CERTIFICATES
+        <span className="star">★</span>DANGLERS
+        <span className="star">★</span>LETTERHEADS
+        <span className="star">★</span>TABLE CALENDERS
+        <span className="star">★</span>T SHIRT
+        <span className="star">★</span>BANNERS
+      </marquee>
+      <div className="home-container">
+        <div className='wardrobe'>
+          <div className='wardrobe-img'>
+            <img src={om} alt="om" />
+          </div>
+          <div className='wardrobe-text'>
+            <h1>Upgrade Your Wardrobe with Our Exclusive</h1>
+            <h1>T-Shirts.</h1>
+            <p>Customize Explore and Shop Now!</p>
+            <button>SHOP NOW</button>
+          </div>
         </div>
-        <div className='wardrobe-text'>
-          <h1>Upgrade Your Wardrobe with Our Exclusive</h1>
-          <h1>T-Shirts.</h1>
-          <p>Customize Explore and Shop Now!</p>
-          <button>SHOP NOW</button>
+        <div className='badge'>
+          <h1>Your Design,</h1>
+          <h1>Your Badge</h1>
+          <h1>PERSONALIZE IT!</h1>
+          <button>EXPLORE</button>
+          <img src={badge} alt="" />
         </div>
       </div>
-      <div className='badge'>
-        <h1>Your Design,</h1>
-        <h1>Your Badge</h1>
-        <h1>PERSONALIZE IT!</h1>
-        <button>EXPLORE</button>
-        <img src={badge} alt="" />
-      </div>
-    </div>
-    <div className="banner">
+      <div className="banner">
         <span className='text'>
           <h1>DEV CREATIONS</h1>
           <hr/>
@@ -71,27 +71,27 @@ const Carousel = () => {
         <h4>Browse through our products</h4>
         <div className="explore-container">
           <div className="explore-card">
-          <h3>T-Shirts</h3>
+            <h3>T-Shirts</h3>
             <img src={explore_tWoman} alt="" />
           </div>
           <div className="explore-card">
-          <h3>Badges</h3>
+            <h3>Badges</h3>
             <img src={explore_badge} alt="" /> 
           </div>
           <div className="explore-card">
-          <h3>Letterheads</h3>
+            <h3>Letterheads</h3>
             <img src={explore_letterhead} alt="" /> 
           </div>
           <div className="explore-card">
-          <h3>Banners</h3>
+            <h3>Banners</h3>
             <img src={explore_banner} alt="" /> 
           </div>
           <div className="explore-card">
-          <h3>Calenders</h3>
+            <h3>Calenders</h3>
             <img src={explore_calender} alt="" /> 
           </div>
           <div className="explore-card">
-          <h3>Certificates</h3>
+            <h3>Certificates</h3>
             <img src={explore_certificate} alt="" /> 
           </div>
         </div>
@@ -107,7 +107,7 @@ const Carousel = () => {
           <img src={man_laptop} alt="" />
         </span>
       </div>
-    </>
+    </div>
   );
 };
 
