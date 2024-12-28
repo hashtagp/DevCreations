@@ -52,7 +52,7 @@ const Footer = () => {
         <div className="footer-section">
           <h3>COMPANY</h3>
           <ul>
-            <li><a href="#!">About</a></li>
+            <li><a onClick={()=>navigate("/about-us")}>About</a></li>
             <li><a onClick={()=>navigate("/faq")}>FAQ</a></li>
             <li><a href="#!">Collaborations</a></li>
           </ul>
@@ -62,9 +62,9 @@ const Footer = () => {
         <div className="footer-section">
           <h3>LEGAL</h3>
           <ul>
-            <li><a href="#!">Terms and Conditions</a></li>
+            <li><a onClick={()=>navigate("/terms-and-conditions")}>Terms and Conditions</a></li>
             <li><a href="#!">Return Policy</a></li>
-            <li><a href="#!">Support</a></li>
+            <li><a onClick={()=>navigate("/contact")}>Support</a></li>
           </ul>
         </div>
 
