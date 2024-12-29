@@ -28,8 +28,6 @@ const Contact = () => {
             <li>
               <i className="fa-solid fa-map"></i>
               <p>
-                DEV Creation and Solutions
-                <br />
                 1st face, 88, KR Defense Colony, Cheemasandra
                 <br />
                 Bengaluru, Karnataka - 560049, India

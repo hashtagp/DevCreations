@@ -45,7 +45,12 @@ const Product = () => {
   };
 
   if (!product) {
-    return <div>Loading...</div>;
+    return (
+      <div className='loading'>
+          <div className="spinner">
+          </div>
+      </div>
+    );
   }
 
   const discountedPrice = product.price - product.discount;

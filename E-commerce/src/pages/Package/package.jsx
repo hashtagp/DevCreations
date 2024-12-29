@@ -49,16 +49,17 @@ const Package = () => {
 
   if (error) {
     return (
-      <div className="error-container flex justify-center items-center h-1/2">
-        <div className="error text-red-500 text-2xl font-bold">Failed to load order. Please try again.</div>
+      <div className='loading'>
+          <div className="error text-center text-red-500 text-2xl font-bold">Failed to load order. Please try again.</div>
       </div>
     );
   }
-
+<div className="error text-red-500 text-2xl font-bold">Failed to load order. Please try again.</div>
   if (!order) {
     return (
-      <div className="loading-container flex justify-center items-center h-1/2">
-        <div className="loading text-2xl font-bold">Loading...</div>
+      <div className='loading'>
+          <div className="spinner">
+          </div>
       </div>
     );
   }

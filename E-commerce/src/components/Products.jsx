@@ -21,10 +21,17 @@ const Products = () => {
   return (
     <section className="products">
       <br/>
+      <p className="discount">25% exclusive discount on all kinds of products</p>
+      {!products.length && (
+          <div className='loading'>
+          <div className="spinner">
+          </div>
+          </div>
+        )}
       <div className="product-grid">
         {products.map((item,index) => (
           <Item key={index} id={item._id} 
-          name={item.name} price={item.price} image={item.image}/>
+          name={item.name} price={item.price} image={item.image} discount={item.discount}/>
         ))}
       </div>
     </section>
