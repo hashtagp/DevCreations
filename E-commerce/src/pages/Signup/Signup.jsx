@@ -81,15 +81,16 @@ function Signup() {
           <input type="text" placeholder="Name" value={username} onChange={(e) => setUsername(e.target.value)} required />
           <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <p>By signing in, you agree to our</p>
+          <a className='tnc' onClick={() => navigate("/terms-and-conditions")}>*Terms and Conditions</a>
           <br />
           <button type="submit">Sign Up</button>
           <br />
-          <a onClick={() => navigate("/termsandconditions")}>*Terms and Conditions</a>
-          {isMobile && (
-            <button type="button" onClick={handleSignInClick}>Login</button>
-          )}
         </form>
       </div>
+      {isMobile && (
+        <p>OR</p>
+      )}
       <div className="form-container sign-in">
         <form onSubmit={handleLogin}>
           <h1>Sign In</h1>
@@ -106,9 +107,6 @@ function Signup() {
           <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           <a href="#">Forget Your Password?</a>
           <button type="submit">Sign In</button>
-          {isMobile && (
-            <button type="button" onClick={handleSignUpClick}>Create Account</button>
-          )}
         </form>
       </div>
       {!isMobile && (

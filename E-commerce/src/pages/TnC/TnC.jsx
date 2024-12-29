@@ -2,6 +2,9 @@ import React from "react";
 import "./TnC.css";
 
 const TermsAndConditions = () => {
+
+  window.scrollTo(0, 0);
+
   return (
     <div className="terms-container">
       <header>

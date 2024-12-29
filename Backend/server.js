@@ -22,7 +22,7 @@ app.use(cookieParser()); // To handle cookies
 
 // CORS configuration
 const corsOptions = {
-  origin: 'http://localhost:5173', // Update with your frontend URL
+  origin: ['http://localhost:5173','http://localhost:5174'], // Update with your frontend URL
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 };
@@ -36,7 +36,6 @@ mongoose.connect("mongodb+srv://hashtagp27:Pritam272003@cluster0.qbbj5.mongodb.n
   socketTimeoutMS: 45000,
 }).then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
-
 
 // Use Routes
 app.use('/api/auth', authRoutes);

@@ -67,14 +67,12 @@
 
 .social-media {
   margin-top: 20px;
-  text-align: center;
 }
 
 .social-media ul {
   list-style: none;
   padding: 0;
   display: flex;
-  justify-content: center;
   gap: 15px;
 }
 

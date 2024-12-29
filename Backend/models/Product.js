@@ -6,6 +6,8 @@ const ProductSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   category: { type: String, required: true },
   image: { type: String, required: true },
+  discount: { type: Number, default: function() { return (this.price * 0.25)-2; } },
+  bundlesSold: { type: Number, default: function() { return Math.floor(this.name.length+this.description.length/2); } },
 });
 
 const Product = mongoose.model('Product', ProductSchema);

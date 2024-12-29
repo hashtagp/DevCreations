@@ -1,31 +1,30 @@
 import React from 'react';
 import './Explore.css';
 import banner from "../assets/banner.png";
-import cap from "../assets/cap.png";
-import cup_bottle from "../assets/cup_bottle.png";
-import t_shirt from "../assets/t_shirt.png";
+import combo from "../assets/combo.webp";
+import models from "../assets/3d models.jpg";
+import plant from "../assets/bonsai plants.jpg";
 import merch from "../assets/merch.png";
 
 const Explore = () => {
   return (
     <div className='Products'>
       <div className="category">
+        <div className="product-c1">
         <div className="Product">
-          <img src={cap} alt="cap" />
-          <p>Customized caps</p>
+          <img src={combo} alt="office gifts" />
+          <p>Office Gifts</p>
         </div>
         <div className="Product">
-          <img src={cup_bottle} alt="cup_bottle" />
-          <p>Customized bottles</p>
+          <img src={models} alt="3D models" />
+          <p>3D printing models</p>
         </div>
-        <div className="Product">
-          <img src={t_shirt} alt="t_shirt" />
-          <p>Customized tees</p>
         </div>
-        <div className="Product">
-          <img src={merch} alt="merch" />
-          <p>Our Merch</p>
+        <div className="Product bonsai">
+          <img src={plant} alt="Bonsai Plant" />
+          <p>Bonsai Plants</p>
         </div>
+        
       </div>
       <div className="main">
         <div className="main-product">

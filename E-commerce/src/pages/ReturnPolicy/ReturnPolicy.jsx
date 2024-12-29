@@ -2,6 +2,9 @@ import React from 'react';
 import './ReturnPolicy.css';
 
 const ReturnPolicy = () => {
+
+  window.scrollTo(0, 0);
+  
   return (
     <div className='return-policy'>
       <header>

@@ -1,5 +1,8 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const StoreContext = createContext(null);
 
@@ -31,6 +34,8 @@ const StoreContextProvider = (props) => {
       } catch (error) {
         console.error("Error adding item to cart on server:", error);
       }
+    }else{
+      toast.error("Please login to add items to cart");
     }
   };
 
@@ -54,6 +59,8 @@ const StoreContextProvider = (props) => {
       } catch (error) {
         console.error("Error removing item from cart on server:", error);
       }
+    }else{
+      toast.error("Please login to remove items from cart");
     }
   };
 

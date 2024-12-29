@@ -1,11 +1,12 @@
 import React from 'react';
 import Slider from 'react-slick';
 import './Home.css';
-import banner from "../../assets/banner.png"
-import cap from "../../assets/cap.png"
-import cup_bottle from "../../assets/cup_bottle.png"
-import t_shirt from "../../assets/t_shirt.png"
-import merch from"../../assets/merch.png"
+import mug from "../../assets/mug-home.webp"
+import pens from "../../assets/pens-home.jpeg"
+import keychains from "../../assets/keychains-home.jpeg"
+import dairy from "../../assets/dairy-home.avif"
+import mobilestand from "../../assets/Mobile-stand-home.jpg"
+import penstand from "../../assets/pen-stand-home.jpeg"
 import Explore from '../../components/Explore';
 import om from "../../assets/om.svg"
 import badge from "../../assets/badge.png"
@@ -27,13 +28,15 @@ const Carousel = () => {
     <div className="home-content">
       <Explore/>
       <marquee behavior="alternate" direction="left">
-        <span className="star">★</span>BADGES
-        <span className="star">★</span>CERTIFICATES
-        <span className="star">★</span>DANGLERS
-        <span className="star">★</span>LETTERHEADS
-        <span className="star">★</span>TABLE CALENDERS
-        <span className="star">★</span>T SHIRT
-        <span className="star">★</span>BANNERS
+        <span className="star">★</span>OFFICE GIFTS
+        <span className="star">★</span>PENS
+        <span className="star">★</span>DAIRY BOOKS
+        <span className="star">★</span>BOTTLES
+        <span className="star">★</span>3D PRINTING MODELS
+        <span className="star">★</span>MOBILE STAND
+        <span className="star">★</span>KEYCHAINS
+        <span className="star">★</span>PEN STAND
+        <span className="star">★</span>BONSAI PLANTS
       </marquee>
       <div className="home-container">
         <div className='wardrobe'>
@@ -59,7 +62,7 @@ const Carousel = () => {
         <span className='text'>
           <h1>DEV CREATIONS</h1>
           <hr/>
-          <h4>A N D   S O L U T I O N S</h4>
+          <h4>A N D&nbsp; S O L U T I O N S</h4>
           <p>YOUR VISION IS OUR  CREATIONS</p>
           <p>Creative branding solutions for businesses, delivering everything needed to make a lasting impression.</p>
         </span>
@@ -71,28 +74,28 @@ const Carousel = () => {
         <h4>Browse through our products</h4>
         <div className="explore-container">
           <div className="explore-card">
-            <h3>T-Shirts</h3>
-            <img src={explore_tWoman} alt="" />
+            <h3>Gift mugs</h3>
+            <img src={mug} alt="Gift mugs" />
           </div>
           <div className="explore-card">
-            <h3>Badges</h3>
-            <img src={explore_badge} alt="" /> 
+            <h3>Pens</h3>
+            <img src={pens} alt="Pens" /> 
           </div>
           <div className="explore-card">
-            <h3>Letterheads</h3>
-            <img src={explore_letterhead} alt="" /> 
+            <h3>Key chains</h3>
+            <img src={keychains} alt="Key chains" /> 
           </div>
           <div className="explore-card">
-            <h3>Banners</h3>
-            <img src={explore_banner} alt="" /> 
+            <h3>Personal dairy</h3>
+            <img src={dairy} alt="Personal dairy" /> 
           </div>
           <div className="explore-card">
-            <h3>Calenders</h3>
-            <img src={explore_calender} alt="" /> 
+            <h3>Mobile stand</h3>
+            <img src={mobilestand} alt="Mobile stand" /> 
           </div>
           <div className="explore-card">
-            <h3>Certificates</h3>
-            <img src={explore_certificate} alt="" /> 
+            <h3>Pen stand</h3>
+            <img src={penstand} alt="Pen stand" /> 
           </div>
         </div>
         <button onClick={()=>navigate("/products")}>EXPLORE MORE</button>

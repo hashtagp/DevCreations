@@ -9,6 +9,11 @@ const Profile = () => {
   const { url } = useContext(StoreContext);
   const navigate = useNavigate();
 
+  const logoutHandler = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
   useEffect(() => {
     async function fetchData() {
       const token = localStorage.getItem('token');
@@ -46,10 +51,10 @@ const Profile = () => {
           {/* Action Buttons Section */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full lg:w-2/3">
             <button className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300" onClick={() => navigate("/myOrders")}>Your Orders</button>
-            <button className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300">Your Address</button>
             <button className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300">Track Your Order</button>
-            <button className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300">Purchase History</button>
+            <button className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300" onClick={() => navigate("/myOrders")}>Purchase History</button>
             <a href="/contact" className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300">Contact Us</a>
+            <a href="/contact" className="bg-orange-100 hover:bg-orange-200 text-orange-600 font-medium py-8 px-8 text-center rounded-md shadow-md transition duration-300" onClick={() => logoutHandler()}>Logout</a>
           </div>
         </div>
       </main>

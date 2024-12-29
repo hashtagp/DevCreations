@@ -263,7 +263,6 @@ marquee {
 }
 
 .explore-card img {
-  margin: auto;
   position: relative;
   object-fit: cover;
   border-radius: 15px;   

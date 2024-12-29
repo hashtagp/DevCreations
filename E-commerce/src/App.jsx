@@ -19,12 +19,14 @@ import MyOrders from "./pages/MyOrders/MyOrders.jsx";
 import PlaceOrder from "./pages/placeOrder/placeOrder.jsx";
 import CartPage from "./pages/Cart/cart.jsx";
 import ReturnPolicy from "./pages/ReturnPolicy/ReturnPolicy.jsx";
-import Product from "./components/product.jsx";
+import Product from "./components/Product.jsx";
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
       <div className="app">
         <Navbar />
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />

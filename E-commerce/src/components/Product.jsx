@@ -8,7 +8,6 @@ const Product = () => {
   const [product, setProduct] = useState(null);
   const [pincode, setPincode] = useState('');
   const [pincodeMessage, setPincodeMessage] = useState('');
-  const [bundlesSold, setBundlesSold] = useState(0);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const { url, addToCart } = useContext(StoreContext);
 
@@ -24,7 +23,6 @@ const Product = () => {
     };
 
     fetchProduct();
-    setBundlesSold(Math.floor(Math.random() * (1000 - 100 + 1)) + 100);
   }, [productId, url]);
 
   const handlePincodeChange = (e) => {
@@ -50,12 +48,14 @@ const Product = () => {
     return <div>Loading...</div>;
   }
 
+  const discountedPrice = product.price - product.discount;
+
   return (
     <main className="product-container mx-auto p-4 bg-gray-50">
       <div className="flex flex-col lg:flex-row lg:space-x-12">
         {/* Product Image */}
         <div className="flex-shrink-0 lg:w-1/2">
-          <img src={product.image} alt={product.name} className="w-full rounded-lg h-screen shadow-lg px-2 py-2" />
+          <img src={product.image} alt={product.name} className="w-full rounded-lg shadow-lg px-2 py-2" />
           <div className="flex space-x-3 mt-5 overflow-x-auto gap-2"></div>
         </div>
 
@@ -67,8 +67,8 @@ const Product = () => {
             {product.description}
           </p>
           <div className="flex items-center space-x-4 mt-4">
-            <span className="text-xl font-bold text-black">Rs. {product.price}</span>
-            <span className="text-gray-400 line-through">{(product.price * 1.5) - 2}</span>
+            <span className="text-xl font-bold text-black">Rs. {discountedPrice}</span>
+            <span className="text-gray-400 line-through">{(product.price)}</span>
             <span className="text-xs text-gray-500">MRP Inclusive of all taxes</span>
           </div>
 
@@ -85,13 +85,13 @@ const Product = () => {
               Buy Now
             </button>
           </div>
-          <div className="mt-6 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="mt-6 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <input
               type="text"
               placeholder="Enter Pin to Check delivery"
               value={pincode}
               onChange={handlePincodeChange}
-              className="flex-1 border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-auto border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
             <button
               onClick={handlePincodeCheck}
@@ -100,9 +100,13 @@ const Product = () => {
               CHECK
             </button>
           </div>
-          {pincodeMessage && <p className="text-gray-600 text-sm mt-4">{pincodeMessage}</p>}
+          {pincodeMessage && (
+            <p className={`text-sm mt-4 ${pincode.length === 6 ? 'text-green-600' : 'text-red-600'}`}>
+              {pincodeMessage}
+            </p>
+          )}
           <br />
-          <p className="text-gray-600 text-sm mt-4">Over {bundlesSold} bundles sold so far</p>
+          <p className="text-gray-600 text-sm mt-4">Over {product.bundlesSold} bundles sold so far</p>
           <hr className="h-px my-6 bg-gray-400 border-0 dark:bg-gray-800" />
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
             <div className="flex items-center space-x-2 text-gray-700">

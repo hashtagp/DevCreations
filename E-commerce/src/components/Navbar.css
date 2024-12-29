@@ -16,6 +16,7 @@
 
 .logo {
   background-color: white;
+  border: none;
 }
 
 .logo img {
@@ -49,6 +50,7 @@
   align-items: center;
   gap: 2px;
   background-color: white;
+  position: relative; /* Add relative positioning */
 }
 
 .search-bar input[type="text"] {
@@ -128,6 +130,40 @@
   background-color: #f0f0f0; /* Add hover background */
 }
 
+.search-results {
+  position: absolute;
+  top: 100%; /* Position just below the search bar */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-results ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-results li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.search-results li:hover {
+  background-color: #f0f0f0;
+}
+
+.search-results li:last-child {
+  border-bottom: none;
+}
+
 /* Ensure Nav Items are hidden when on mobile */
 @media screen and (max-width: 1110px) {
   .nav-links {
@@ -144,6 +180,7 @@
   }
 
   .mobile-menu {
+    top: auto;
     display: none; /* Hide mobile menu by default */
   }
 

@@ -2,6 +2,9 @@ import React from 'react';
 import './Contact.css';
 
 const Contact = () => {
+
+  window.scrollTo(0, 0);
+
   return (
     <section id="contact-details" className="section">
       <div className="contact">

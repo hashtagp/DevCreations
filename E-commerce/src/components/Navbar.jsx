@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Navbar.css';
 import devLogo2 from "../assets/logo.png";
 import { useNavigate } from 'react-router-dom';
+import { StoreContext } from '../context/StoreContext';
+import axios from "axios";
+import { debounce } from 'lodash';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const { url } = useContext(StoreContext);
 
   const navigate = useNavigate();
 
@@ -17,6 +23,28 @@ const Navbar = () => {
     } else {
       navigate('/signup');
     }
+  };
+
+  const debouncedSearch = debounce(async (query) => {
+    try {
+      const response = await axios.get(`${url}/api/products/search`, { params: { query } });
+      setSearchResults(response.data);
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+    }
+  }, 300);
+  
+  const handleSearchInputChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    if (query.trim()) debouncedSearch(query);
+    else setSearchResults([]);
+  };
+
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
+    setSearchQuery('');
+    setSearchResults([]);
   };
 
   return (
@@ -49,7 +77,7 @@ const Navbar = () => {
 
           {/* Logo */}
           <div className="logo">
-            <a href="#">
+            <a href="/" onClick={() => setSearchResults([])}>
               <img src={devLogo2} alt="Dev Creations Logo" />
             </a>
           </div>
@@ -59,7 +87,20 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search products..."
+              value={searchQuery}
+              onChange={handleSearchInputChange}
             />
+            {searchQuery && searchResults.length > 0 && (
+              <div className="search-results">
+                <ul>
+                  {searchResults.map((result) => (
+                    <li key={result._id} onClick={() => handleProductClick(result._id)}>
+                      {result.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
           {/* Nav Icons */}
