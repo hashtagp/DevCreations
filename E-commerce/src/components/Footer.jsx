@@ -41,10 +41,10 @@ const Footer = () => {
         <div className="footer-section">
           <h3>OUR SERVICES</h3>
           <ul>
-            <li><a href="#!">Educational courses</a></li>
-            <li><a href="#!">E-Services</a></li>
-            <li><a href="#!">Office Gifts</a></li>
-            <li><a href="#!">Design and Printing</a></li>
+            <li><a href="https://devcreationsblr.com/services.html">Educational courses</a></li>
+            <li><a href="https://devcreationsblr.com/services.html">E-Services</a></li>
+            <li><a href="https://devcreationsblr.com/services.html">Office Gifts</a></li>
+            <li><a href="https://devcreationsblr.com/services.html">Design and Printing</a></li>
           </ul>
         </div>
 

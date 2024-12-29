@@ -41,6 +41,14 @@
   background-color: white;
 }
 
+.nav-links .active{
+  border-bottom: 2px solid #f4a261;
+}
+
+.mobile-menu li .active{
+  border-bottom: 2px solid #f4a261;
+}
+
 .nav-links li:hover {
   color: #f4a261;
 }
@@ -112,14 +120,16 @@
 }
 
 .mobile-menu li {
-  padding: 10px 0;
+  padding: 10px 0px;
 }
 
 .mobile-menu li a {
   color: black;
   font-family: 'cabin', sans-serif;
+  width: fit-content;
   font-size: 24px;
-  padding: 10px;
+  padding: 10px 10px;
+  margin: auto;
   text-decoration: none;
   transition: color 0.3s;
   display: block; /* Ensure full clickable area */

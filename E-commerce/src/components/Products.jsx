@@ -21,7 +21,7 @@ const Products = () => {
   return (
     <section className="products">
       <br/>
-      <p className="discount">25% exclusive discount on all kinds of products</p>
+      <p className="discount">Upto 25% off on all kinds of products</p>
       {!products.length && (
           <div className='loading'>
           <div className="spinner">
