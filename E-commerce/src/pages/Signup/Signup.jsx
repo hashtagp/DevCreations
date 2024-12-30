@@ -115,12 +115,12 @@ function Signup() {
             <div className="toggle-panel toggle-left">
               <h1>Welcome Back!</h1>
               <p>Enter your personal details to use all of site features</p>
-              <button id="login" onClick={handleSignInClick}>Sign In</button>
+              <button id="login" onClick={handleSignInClick}>Sign Up</button>
             </div>
             <div className="toggle-panel toggle-right">
               <h1>Hello, Friend!</h1>
               <p>Register with your personal details to use all of site features</p>
-              <button id="register" onClick={handleSignUpClick}>Sign Up</button>
+              <button id="register" onClick={handleSignUpClick}>Sign In</button>
             </div>
           </div>
         </div>

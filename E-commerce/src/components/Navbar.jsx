@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './Navbar.css';
 import devLogo2 from "../assets/logo.png";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { StoreContext } from '../context/StoreContext';
 import axios from "axios";
-import { debounce } from 'lodash';
+import { debounce, set } from 'lodash';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,8 +14,14 @@ const Navbar = () => {
   const { url } = useContext(StoreContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
+
+  useEffect(() => { 
+    const path = location.pathname.split('/')[1];
+    setMenu(path);
+  }, [location]);
 
   const handleMenuClick = (menu) => {
     setMenu(menu);
@@ -39,7 +45,7 @@ const Navbar = () => {
       console.error('Error fetching search results:', error);
     }
   }, 300);
-  
+
   const handleSearchInputChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
@@ -61,9 +67,9 @@ const Navbar = () => {
           {/* Desktop Nav Links */}
           <div className="one py-25 font-medium hidden sm:block">
             <ul className="nav-links">
-              <li onClick={() => handleMenuClick("")} className={menu===""?"active":null}>Home</li>
-              <li onClick={() => handleMenuClick("Products")} className={menu==="Products"?"active":null}>Shop</li>
-              <li onClick={() => handleMenuClick("Contact")} className={menu==="Contact"?"active":null}>Contact</li>
+              <li onClick={() => handleMenuClick("")} className={menu === "" ? "active" : null}>Home</li>
+              <li onClick={() => handleMenuClick("products")} className={menu === "products" ? "active" : null}>Shop</li>
+              <li onClick={() => handleMenuClick("contact")} className={menu === "contact" ? "active" : null}>Contact</li>
             </ul>
           </div>
 
@@ -74,9 +80,9 @@ const Navbar = () => {
             </button>
             <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
               <ul>
-                <li><a href="#" onClick={() => { toggleMenu(); handleMenuClick("") }} className={menu===""?"active":null}>Home</a></li>
-                <li><a href="#" onClick={() => { toggleMenu(); handleMenuClick("Products") }} className={menu==="Products"?"active":null}>Shop</a></li>
-                <li><a href="#" onClick={() => { toggleMenu(); handleMenuClick("Contact") }} className={menu==="Contact"?"active":null}>Contact</a></li>
+                <li><a href="#" onClick={() => { toggleMenu(); handleMenuClick("") }} className={menu === "" ? "active" : null}>Home</a></li>
+                <li><a href="#" onClick={() => { toggleMenu(); handleMenuClick("Products") }} className={menu === "Products" ? "active" : null}>Shop</a></li>
+                <li><a href="#" onClick={() => { toggleMenu(); handleMenuClick("Contact") }} className={menu === "Contact" ? "active" : null}>Contact</a></li>
               </ul>
             </div>
           </div>

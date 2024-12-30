@@ -96,8 +96,8 @@ const Package = () => {
           </div>
           <div className="flex-1 text-center">
             {order.deliveredDate ? <div className={`w-8 h-8 mx-auto rounded-full ${getStatusClass('Delivered')}`}></div> : <div className="w-8 h-8 mx-auto rounded-full bg-gray-300"></div>}
-            <p className="mt-2 text-sm font-semibold text-gray-400">Delivered</p>
-            <p className="text-xs text-gray-400">{order.deliveredDate ? new Date(order.deliveredDate).toLocaleDateString('en-US', {
+            <p className="mt-2 text-sm font-semibold">Delivered</p>
+            <p className="text-xs text-gray-500">{order.deliveredDate ? new Date(order.deliveredDate).toLocaleDateString('en-US', {
             weekday: 'short',
             day: 'numeric',
             month: 'long',

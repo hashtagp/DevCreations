@@ -29,7 +29,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://hashtagp27:Pritam272003@cluster0.qbbj5.mongodb.net/devcreations", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 30000,

@@ -20,7 +20,7 @@ const AboutUs = () => {
             <div className="text-gray-700 text-lg leading-relaxed md:w-1/2">
               <h3 className="text-3xl font-bold text-gray-800 mb-6">ABOUT US</h3>
               <p>
-                Nestled amidst pristine landscapes, Wayanad Silverwoods resort is more than just a retreat; it's a sanctuary offering panoramic views of serene landscapes, enchanted woodlands, and infinite water view of the Banasura Sagar. Curled up amidst the tranquil wilderness of the Western ghats, with the Banasura mountains hovering as its back drop, Wayanad Silverwoods Resort stands as a testament to the harmonious blend of nature's bounty and luxury's allure.
+              Dev Creations is a versatile design-focused company dedicated to delivering impactful solutions. They specialize in UI/UX design, web and app development, poster and banner creation, and crafting customized office gifts. With a mission to bridge creativity and functionality, Dev Creations combines technical expertise with a deep understanding of client needs to create seamless user experiences and visually compelling designs. They are committed to building strong partnerships and exceeding expectations with every project.
               </p>
             </div>
           </div>

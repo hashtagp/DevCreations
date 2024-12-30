@@ -3,7 +3,6 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
@@ -12,6 +11,11 @@ const StoreContextProvider = (props) => {
   const [value, setValue] = useState(false);
   const [item_list, setItemList] = useState([]);
   const url = "http://localhost:5000";
+
+  const handleTokenExpiration = () => {
+    toast.error("Session expired. Please log in again.");
+    clearToken();
+  };
 
   const addToCart = async (item) => {
     const { id, price } = item;
@@ -32,9 +36,13 @@ const StoreContextProvider = (props) => {
           return newCartItems;
         });
       } catch (error) {
-        console.error("Error adding item to cart on server:", error);
+        if (error.response && error.response.status === 401) {
+          handleTokenExpiration();
+        } else {
+          console.error("Error adding item to cart on server:", error);
+        }
       }
-    }else{
+    } else {
       toast.error("Please login to add items to cart");
     }
   };
@@ -57,9 +65,13 @@ const StoreContextProvider = (props) => {
           return newCartItems;
         });
       } catch (error) {
-        console.error("Error removing item from cart on server:", error);
+        if (error.response && error.response.status === 401) {
+          handleTokenExpiration();
+        } else {
+          console.error("Error removing item from cart on server:", error);
+        }
       }
-    }else{
+    } else {
       toast.error("Please login to remove items from cart");
     }
   };
@@ -83,7 +95,11 @@ const StoreContextProvider = (props) => {
         return acc;
       }, {}));
     } catch (error) {
-      console.error("Error loading cart data from server:", error);
+      if (error.response && error.response.status === 401) {
+        handleTokenExpiration();
+      } else {
+        console.error("Error loading cart data from server:", error);
+      }
     }
   };
 
